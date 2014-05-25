@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F30ED68419328ED80027483C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68319328ED80027483C /* Foundation.framework */; };
+		F30ED68619328ED80027483C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68519328ED80027483C /* CoreGraphics.framework */; };
+		F30ED68819328ED80027483C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68719328ED80027483C /* UIKit.framework */; };
+		F30ED68A19328ED80027483C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68919328ED80027483C /* SpriteKit.framework */; };
+		F30ED69019328ED80027483C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F30ED68E19328ED80027483C /* InfoPlist.strings */; };
+		F30ED69219328ED80027483C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED69119328ED80027483C /* main.m */; };
+		F30ED69619328ED80027483C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED69519328ED80027483C /* AppDelegate.m */; };
+		F30ED69919328ED80027483C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30ED69719328ED80027483C /* Main.storyboard */; };
+		F30ED69C19328ED80027483C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED69B19328ED80027483C /* ViewController.m */; };
+		F30ED69F19328ED80027483C /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED69E19328ED80027483C /* MyScene.m */; };
+		F30ED6A119328ED80027483C /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6A019328ED80027483C /* Spaceship.png */; };
+		F30ED6A319328ED80027483C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6A219328ED80027483C /* Images.xcassets */; };
+		F30ED6AA19328ED90027483C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED6A919328ED90027483C /* XCTest.framework */; };
+		F30ED6AB19328ED90027483C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68319328ED80027483C /* Foundation.framework */; };
+		F30ED6AC19328ED90027483C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68719328ED80027483C /* UIKit.framework */; };
+		F30ED6B419328ED90027483C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6B219328ED90027483C /* InfoPlist.strings */; };
+		F30ED6B619328ED90027483C /* ShootyJumpyBoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6B519328ED90027483C /* ShootyJumpyBoyTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F30ED6AD19328ED90027483C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F30ED67819328ED80027483C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F30ED67F19328ED80027483C;
+			remoteInfo = ShootyJumpyBoy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F30ED68019328ED80027483C /* ShootyJumpyBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootyJumpyBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30ED68319328ED80027483C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F30ED68519328ED80027483C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F30ED68719328ED80027483C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F30ED68919328ED80027483C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		F30ED68D19328ED80027483C /* ShootyJumpyBoy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShootyJumpyBoy-Info.plist"; sourceTree = "<group>"; };
+		F30ED68F19328ED80027483C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F30ED69119328ED80027483C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F30ED69319328ED80027483C /* ShootyJumpyBoy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShootyJumpyBoy-Prefix.pch"; sourceTree = "<group>"; };
+		F30ED69419328ED80027483C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F30ED69519328ED80027483C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F30ED69819328ED80027483C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F30ED69A19328ED80027483C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F30ED69B19328ED80027483C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F30ED69D19328ED80027483C /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		F30ED69E19328ED80027483C /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		F30ED6A019328ED80027483C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		F30ED6A219328ED80027483C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F30ED6A819328ED90027483C /* ShootyJumpyBoyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShootyJumpyBoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30ED6A919328ED90027483C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F30ED6B119328ED90027483C /* ShootyJumpyBoyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShootyJumpyBoyTests-Info.plist"; sourceTree = "<group>"; };
+		F30ED6B319328ED90027483C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F30ED6B519328ED90027483C /* ShootyJumpyBoyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShootyJumpyBoyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F30ED67D19328ED80027483C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30ED68619328ED80027483C /* CoreGraphics.framework in Frameworks */,
+				F30ED68819328ED80027483C /* UIKit.framework in Frameworks */,
+				F30ED68A19328ED80027483C /* SpriteKit.framework in Frameworks */,
+				F30ED68419328ED80027483C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30ED6A519328ED90027483C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30ED6AA19328ED90027483C /* XCTest.framework in Frameworks */,
+				F30ED6AC19328ED90027483C /* UIKit.framework in Frameworks */,
+				F30ED6AB19328ED90027483C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F30ED67719328ED80027483C = {
+			isa = PBXGroup;
+			children = (
+				F30ED68B19328ED80027483C /* ShootyJumpyBoy */,
+				F30ED6AF19328ED90027483C /* ShootyJumpyBoyTests */,
+				F30ED68219328ED80027483C /* Frameworks */,
+				F30ED68119328ED80027483C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F30ED68119328ED80027483C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED68019328ED80027483C /* ShootyJumpyBoy.app */,
+				F30ED6A819328ED90027483C /* ShootyJumpyBoyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F30ED68219328ED80027483C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED68319328ED80027483C /* Foundation.framework */,
+				F30ED68519328ED80027483C /* CoreGraphics.framework */,
+				F30ED68719328ED80027483C /* UIKit.framework */,
+				F30ED68919328ED80027483C /* SpriteKit.framework */,
+				F30ED6A919328ED90027483C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F30ED68B19328ED80027483C /* ShootyJumpyBoy */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED69419328ED80027483C /* AppDelegate.h */,
+				F30ED69519328ED80027483C /* AppDelegate.m */,
+				F30ED69719328ED80027483C /* Main.storyboard */,
+				F30ED69A19328ED80027483C /* ViewController.h */,
+				F30ED69B19328ED80027483C /* ViewController.m */,
+				F30ED69D19328ED80027483C /* MyScene.h */,
+				F30ED69E19328ED80027483C /* MyScene.m */,
+				F30ED6A019328ED80027483C /* Spaceship.png */,
+				F30ED6A219328ED80027483C /* Images.xcassets */,
+				F30ED68C19328ED80027483C /* Supporting Files */,
+			);
+			path = ShootyJumpyBoy;
+			sourceTree = "<group>";
+		};
+		F30ED68C19328ED80027483C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED68D19328ED80027483C /* ShootyJumpyBoy-Info.plist */,
+				F30ED68E19328ED80027483C /* InfoPlist.strings */,
+				F30ED69119328ED80027483C /* main.m */,
+				F30ED69319328ED80027483C /* ShootyJumpyBoy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F30ED6AF19328ED90027483C /* ShootyJumpyBoyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6B519328ED90027483C /* ShootyJumpyBoyTests.m */,
+				F30ED6B019328ED90027483C /* Supporting Files */,
+			);
+			path = ShootyJumpyBoyTests;
+			sourceTree = "<group>";
+		};
+		F30ED6B019328ED90027483C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6B119328ED90027483C /* ShootyJumpyBoyTests-Info.plist */,
+				F30ED6B219328ED90027483C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F30ED67F19328ED80027483C /* ShootyJumpyBoy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30ED6B919328ED90027483C /* Build configuration list for PBXNativeTarget "ShootyJumpyBoy" */;
+			buildPhases = (
+				F30ED67C19328ED80027483C /* Sources */,
+				F30ED67D19328ED80027483C /* Frameworks */,
+				F30ED67E19328ED80027483C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShootyJumpyBoy;
+			productName = ShootyJumpyBoy;
+			productReference = F30ED68019328ED80027483C /* ShootyJumpyBoy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F30ED6A719328ED90027483C /* ShootyJumpyBoyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30ED6BC19328ED90027483C /* Build configuration list for PBXNativeTarget "ShootyJumpyBoyTests" */;
+			buildPhases = (
+				F30ED6A419328ED90027483C /* Sources */,
+				F30ED6A519328ED90027483C /* Frameworks */,
+				F30ED6A619328ED90027483C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F30ED6AE19328ED90027483C /* PBXTargetDependency */,
+			);
+			name = ShootyJumpyBoyTests;
+			productName = ShootyJumpyBoyTests;
+			productReference = F30ED6A819328ED90027483C /* ShootyJumpyBoyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F30ED67819328ED80027483C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Mark Meyer";
+				TargetAttributes = {
+					F30ED6A719328ED90027483C = {
+						TestTargetID = F30ED67F19328ED80027483C;
+					};
+				};
+			};
+			buildConfigurationList = F30ED67B19328ED80027483C /* Build configuration list for PBXProject "ShootyJumpyBoy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F30ED67719328ED80027483C;
+			productRefGroup = F30ED68119328ED80027483C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F30ED67F19328ED80027483C /* ShootyJumpyBoy */,
+				F30ED6A719328ED90027483C /* ShootyJumpyBoyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F30ED67E19328ED80027483C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30ED69019328ED80027483C /* InfoPlist.strings in Resources */,
+				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
+				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
+				F30ED69919328ED80027483C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30ED6A619328ED90027483C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30ED6B419328ED90027483C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F30ED67C19328ED80027483C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30ED69F19328ED80027483C /* MyScene.m in Sources */,
+				F30ED69C19328ED80027483C /* ViewController.m in Sources */,
+				F30ED69619328ED80027483C /* AppDelegate.m in Sources */,
+				F30ED69219328ED80027483C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30ED6A419328ED90027483C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30ED6B619328ED90027483C /* ShootyJumpyBoyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F30ED6AE19328ED90027483C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F30ED67F19328ED80027483C /* ShootyJumpyBoy */;
+			targetProxy = F30ED6AD19328ED90027483C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F30ED68E19328ED80027483C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30ED68F19328ED80027483C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F30ED69719328ED80027483C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30ED69819328ED80027483C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F30ED6B219328ED90027483C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30ED6B319328ED90027483C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F30ED6B719328ED90027483C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F30ED6B819328ED90027483C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F30ED6BA19328ED90027483C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShootyJumpyBoy/ShootyJumpyBoy-Prefix.pch";
+				INFOPLIST_FILE = "ShootyJumpyBoy/ShootyJumpyBoy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F30ED6BB19328ED90027483C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShootyJumpyBoy/ShootyJumpyBoy-Prefix.pch";
+				INFOPLIST_FILE = "ShootyJumpyBoy/ShootyJumpyBoy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F30ED6BD19328ED90027483C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShootyJumpyBoy.app/ShootyJumpyBoy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShootyJumpyBoy/ShootyJumpyBoy-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ShootyJumpyBoyTests/ShootyJumpyBoyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F30ED6BE19328ED90027483C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShootyJumpyBoy.app/ShootyJumpyBoy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShootyJumpyBoy/ShootyJumpyBoy-Prefix.pch";
+				INFOPLIST_FILE = "ShootyJumpyBoyTests/ShootyJumpyBoyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F30ED67B19328ED80027483C /* Build configuration list for PBXProject "ShootyJumpyBoy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30ED6B719328ED90027483C /* Debug */,
+				F30ED6B819328ED90027483C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F30ED6B919328ED90027483C /* Build configuration list for PBXNativeTarget "ShootyJumpyBoy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30ED6BA19328ED90027483C /* Debug */,
+				F30ED6BB19328ED90027483C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F30ED6BC19328ED90027483C /* Build configuration list for PBXNativeTarget "ShootyJumpyBoyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30ED6BD19328ED90027483C /* Debug */,
+				F30ED6BE19328ED90027483C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F30ED67819328ED80027483C /* Project object */;
+}
