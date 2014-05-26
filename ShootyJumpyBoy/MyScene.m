@@ -164,10 +164,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     CGPoint location = [node position];
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithImageNamed:@"spark"];
     
-    bullet.position = CGPointMake(location.x + node.size.width/2, location.y);
+    bullet.position = CGPointMake(location.x + node.size.width, location.y);
     bullet.scale = 1.0;
     
-    bullet.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bullet.size.height/2];
+    bullet.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bullet.size.height/5];
     bullet.physicsBody.dynamic = NO;
     bullet.physicsBody.categoryBitMask = kPlayerProjectileCategory; //TODO
     bullet.physicsBody.contactTestBitMask = kEnemyCategory;
