@@ -11,7 +11,7 @@
 @interface MyScene()
 @property (strong, nonatomic) SKSpriteNode *player;
 @property (strong, nonatomic) SKAction *jump;
-@property (strong, nonatomic) SKAction *shoot;
+//@property (strong, nonatomic) SKAction *shoot;
 @property (strong, nonatomic) NSMutableArray *runTextures;
 
 @property (strong, nonatomic) SKSpriteNode *floor;
@@ -56,13 +56,17 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /*
+    
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
-        
+        if (location.x <= self.size.width/2) {
+            [self.player runAction:self.jump];
+        } else {
+            [self shootFromNode:self.player];
+        }
+
     }
-     */
-    [self.player runAction:self.jump];
+     
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -154,6 +158,27 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 - (void)jumpNode {
     [self.player.physicsBody applyImpulse:CGVectorMake(0, 25.0) atPoint:self.player.position];
+}
+
+- (void)shootFromNode:(SKSpriteNode*)node {
+    CGPoint location = [node position];
+    SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithImageNamed:@"spark"];
+    
+    bullet.position = CGPointMake(location.x + node.size.width/2, location.y);
+    bullet.scale = 1.0;
+    
+    bullet.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bullet.size.height/2];
+    bullet.physicsBody.dynamic = NO;
+    bullet.physicsBody.categoryBitMask = kPlayerProjectileCategory; //TODO
+    bullet.physicsBody.contactTestBitMask = kEnemyCategory;
+    bullet.physicsBody.collisionBitMask = 0;
+    
+    SKAction *fire = [SKAction moveToX:self.frame.size.width + bullet.size.width duration:2];
+    SKAction *remove = [SKAction removeFromParent];
+    
+    [bullet runAction:[SKAction sequence:@[fire, remove]]];
+    
+    [self addChild:bullet];
 }
 
 #pragma mark Physics Delegate

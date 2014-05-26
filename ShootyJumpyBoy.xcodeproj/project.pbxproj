@@ -30,6 +30,8 @@
 		F30ED6D51932A0E00027483C /* Jump.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D41932A0E00027483C /* Jump.png */; };
 		F30ED6D71932E6270027483C /* Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D61932E6270027483C /* Run.atlas */; };
 		F30ED6D91932E86C0027483C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D81932E86C0027483C /* bg.png */; };
+		F30ED6DC1932EB960027483C /* Projectile.sks in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6DA1932EB960027483C /* Projectile.sks */; };
+		F30ED6DD1932EB960027483C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6DB1932EB960027483C /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		F30ED6D41932A0E00027483C /* Jump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jump.png; sourceTree = "<group>"; };
 		F30ED6D61932E6270027483C /* Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Run.atlas; sourceTree = "<group>"; };
 		F30ED6D81932E86C0027483C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		F30ED6DA1932EB960027483C /* Projectile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Projectile.sks; sourceTree = "<group>"; };
+		F30ED6DB1932EB960027483C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				F30ED69419328ED80027483C /* AppDelegate.h */,
 				F30ED69519328ED80027483C /* AppDelegate.m */,
 				F30ED6BF1932901C0027483C /* Constants.h */,
+				F30ED6DA1932EB960027483C /* Projectile.sks */,
+				F30ED6DB1932EB960027483C /* spark.png */,
 				F30ED6C01932901C0027483C /* Constants.m */,
 				F30ED69719328ED80027483C /* Main.storyboard */,
 				F30ED69A19328ED80027483C /* ViewController.h */,
@@ -284,8 +290,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30ED6DD1932EB960027483C /* spark.png in Resources */,
 				F30ED6D71932E6270027483C /* Run.atlas in Resources */,
 				F30ED69019328ED80027483C /* InfoPlist.strings in Resources */,
+				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
