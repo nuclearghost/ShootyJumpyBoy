@@ -137,13 +137,13 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 - (void)createFloor {
     self.floor = [SKSpriteNode spriteNodeWithImageNamed:@"Floor"];
-    [self.floor setScale:0.25];
+    [self.floor setScale:0.45];
     self.floor.name = @"floor";
     
     self.floor.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.floor.size];
     self.floor.physicsBody.categoryBitMask = kWallCategory;
     self.floor.physicsBody.dynamic = NO;
-    self.floor.position = CGPointMake(self.frame.size.width/2, 175);
+    self.floor.position = CGPointMake(self.frame.size.width/2, 0);
     
     [self addChild:self.floor];
 }
@@ -279,6 +279,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
         SKAction *remove = [SKAction removeFromParent];
         [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
+        
+        NSLog(@"Game Over");
+        SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
+        GameOverScene* goScene = [GameOverScene sceneWithSize:self.view.bounds.size];
+        [self.scene.view presentScene: goScene transition: reveal];
     }
 
 }

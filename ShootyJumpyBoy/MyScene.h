@@ -10,6 +10,8 @@
 
 #import "Constants.h"
 
+#import "GameOverScene.h"
+
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 
 @end

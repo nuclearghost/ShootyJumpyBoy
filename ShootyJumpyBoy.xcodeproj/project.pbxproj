@@ -35,6 +35,12 @@
 		F30ED6DF1932F4DB0027483C /* Floor.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6DE1932F4DB0027483C /* Floor.png */; };
 		F30ED6E21932F92A0027483C /* Met.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6E11932F92A0027483C /* Met.png */; };
 		F30ED6E41932FC760027483C /* EXPLOSION.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6E31932FC760027483C /* EXPLOSION.atlas */; };
+		F30ED6E71933AB100027483C /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6E61933AB100027483C /* StartScene.m */; };
+		F30ED6EA1933AB8F0027483C /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6E91933AB8F0027483C /* SKButton.m */; };
+		F30ED6EE1933AD7A0027483C /* ButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6EC1933AD7A0027483C /* ButtonNormal.png */; };
+		F30ED6EF1933AD7A0027483C /* ButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6ED1933AD7A0027483C /* ButtonSelected.png */; };
+		F30ED6F21934009B0027483C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6F11934009B0027483C /* GameOverScene.m */; };
+		F30ED6F6193404780027483C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED6F5193404780027483C /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,15 @@
 		F30ED6DE1932F4DB0027483C /* Floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Floor.png; sourceTree = "<group>"; };
 		F30ED6E11932F92A0027483C /* Met.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Met.png; sourceTree = "<group>"; };
 		F30ED6E31932FC760027483C /* EXPLOSION.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = EXPLOSION.atlas; sourceTree = "<group>"; };
+		F30ED6E51933AB100027483C /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScene.h; sourceTree = "<group>"; };
+		F30ED6E61933AB100027483C /* StartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScene.m; sourceTree = "<group>"; };
+		F30ED6E81933AB8F0027483C /* SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKButton.h; sourceTree = "<group>"; };
+		F30ED6E91933AB8F0027483C /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
+		F30ED6EC1933AD7A0027483C /* ButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonNormal.png; sourceTree = "<group>"; };
+		F30ED6ED1933AD7A0027483C /* ButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonSelected.png; sourceTree = "<group>"; };
+		F30ED6F01934009B0027483C /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		F30ED6F11934009B0027483C /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
+		F30ED6F5193404780027483C /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +109,7 @@
 				F30ED68819328ED80027483C /* UIKit.framework in Frameworks */,
 				F30ED68A19328ED80027483C /* SpriteKit.framework in Frameworks */,
 				F30ED68419328ED80027483C /* Foundation.framework in Frameworks */,
+				F30ED6F6193404780027483C /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +148,7 @@
 		F30ED68219328ED80027483C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F30ED6F5193404780027483C /* GameKit.framework */,
 				F30ED68319328ED80027483C /* Foundation.framework */,
 				F30ED68519328ED80027483C /* CoreGraphics.framework */,
 				F30ED68719328ED80027483C /* UIKit.framework */,
@@ -145,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				F30ED6CB1932961D0027483C /* Resources */,
+				F30ED6F4193400AA0027483C /* Scenes */,
 				F30ED69419328ED80027483C /* AppDelegate.h */,
 				F30ED69519328ED80027483C /* AppDelegate.m */,
 				F30ED6BF1932901C0027483C /* Constants.h */,
@@ -152,8 +170,8 @@
 				F30ED69719328ED80027483C /* Main.storyboard */,
 				F30ED69A19328ED80027483C /* ViewController.h */,
 				F30ED69B19328ED80027483C /* ViewController.m */,
-				F30ED69D19328ED80027483C /* MyScene.h */,
-				F30ED69E19328ED80027483C /* MyScene.m */,
+				F30ED6E81933AB8F0027483C /* SKButton.h */,
+				F30ED6E91933AB8F0027483C /* SKButton.m */,
 				F30ED6A019328ED80027483C /* Spaceship.png */,
 				F30ED6A219328ED80027483C /* Images.xcassets */,
 				F30ED68C19328ED80027483C /* Supporting Files */,
@@ -193,6 +211,7 @@
 		F30ED6CB1932961D0027483C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F30ED6EB1933AD6C0027483C /* Buttons */,
 				F30ED6DA1932EB960027483C /* Projectile.sks */,
 				F30ED6DB1932EB960027483C /* spark.png */,
 				F30ED6E31932FC760027483C /* EXPLOSION.atlas */,
@@ -229,6 +248,28 @@
 				F30ED6E11932F92A0027483C /* Met.png */,
 			);
 			name = Enemies;
+			sourceTree = "<group>";
+		};
+		F30ED6EB1933AD6C0027483C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6EC1933AD7A0027483C /* ButtonNormal.png */,
+				F30ED6ED1933AD7A0027483C /* ButtonSelected.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		F30ED6F4193400AA0027483C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED69D19328ED80027483C /* MyScene.h */,
+				F30ED69E19328ED80027483C /* MyScene.m */,
+				F30ED6E51933AB100027483C /* StartScene.h */,
+				F30ED6E61933AB100027483C /* StartScene.m */,
+				F30ED6F01934009B0027483C /* GameOverScene.h */,
+				F30ED6F11934009B0027483C /* GameOverScene.m */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +319,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mark Meyer";
 				TargetAttributes = {
+					F30ED67F19328ED80027483C = {
+						DevelopmentTeam = 8HEK9W23RJ;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
+					};
 					F30ED6A719328ED90027483C = {
 						TestTargetID = F30ED67F19328ED80027483C;
 					};
@@ -312,10 +361,12 @@
 				F30ED69019328ED80027483C /* InfoPlist.strings in Resources */,
 				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
+				F30ED6EE1933AD7A0027483C /* ButtonNormal.png in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6E21932F92A0027483C /* Met.png in Resources */,
 				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
 				F30ED69919328ED80027483C /* Main.storyboard in Resources */,
+				F30ED6EF1933AD7A0027483C /* ButtonSelected.png in Resources */,
 				F30ED6E41932FC760027483C /* EXPLOSION.atlas in Resources */,
 				F30ED6CE193296390027483C /* Shoot.png in Resources */,
 				F30ED6D319329E4B0027483C /* brick.png in Resources */,
@@ -339,10 +390,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30ED6EA1933AB8F0027483C /* SKButton.m in Sources */,
 				F30ED6C11932901C0027483C /* Constants.m in Sources */,
+				F30ED6E71933AB100027483C /* StartScene.m in Sources */,
 				F30ED69F19328ED80027483C /* MyScene.m in Sources */,
 				F30ED69C19328ED80027483C /* ViewController.m in Sources */,
 				F30ED69619328ED80027483C /* AppDelegate.m in Sources */,
+				F30ED6F21934009B0027483C /* GameOverScene.m in Sources */,
 				F30ED69219328ED80027483C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,10 +522,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShootyJumpyBoy/ShootyJumpyBoy-Prefix.pch";
 				INFOPLIST_FILE = "ShootyJumpyBoy/ShootyJumpyBoy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -482,10 +539,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShootyJumpyBoy/ShootyJumpyBoy-Prefix.pch";
 				INFOPLIST_FILE = "ShootyJumpyBoy/ShootyJumpyBoy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
