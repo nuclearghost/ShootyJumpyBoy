@@ -24,6 +24,12 @@
 		F30ED6AC19328ED90027483C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68719328ED80027483C /* UIKit.framework */; };
 		F30ED6B419328ED90027483C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6B219328ED90027483C /* InfoPlist.strings */; };
 		F30ED6B619328ED90027483C /* ShootyJumpyBoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6B519328ED90027483C /* ShootyJumpyBoyTests.m */; };
+		F30ED6C11932901C0027483C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6C01932901C0027483C /* Constants.m */; };
+		F30ED6CE193296390027483C /* Shoot.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6CD193296390027483C /* Shoot.png */; };
+		F30ED6D319329E4B0027483C /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D219329E4B0027483C /* brick.png */; };
+		F30ED6D51932A0E00027483C /* Jump.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D41932A0E00027483C /* Jump.png */; };
+		F30ED6D71932E6270027483C /* Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D61932E6270027483C /* Run.atlas */; };
+		F30ED6D91932E86C0027483C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D81932E86C0027483C /* bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,13 @@
 		F30ED6B119328ED90027483C /* ShootyJumpyBoyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShootyJumpyBoyTests-Info.plist"; sourceTree = "<group>"; };
 		F30ED6B319328ED90027483C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F30ED6B519328ED90027483C /* ShootyJumpyBoyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShootyJumpyBoyTests.m; sourceTree = "<group>"; };
+		F30ED6BF1932901C0027483C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F30ED6C01932901C0027483C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F30ED6CD193296390027483C /* Shoot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shoot.png; sourceTree = "<group>"; };
+		F30ED6D219329E4B0027483C /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
+		F30ED6D41932A0E00027483C /* Jump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jump.png; sourceTree = "<group>"; };
+		F30ED6D61932E6270027483C /* Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Run.atlas; sourceTree = "<group>"; };
+		F30ED6D81932E86C0027483C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +134,11 @@
 		F30ED68B19328ED80027483C /* ShootyJumpyBoy */ = {
 			isa = PBXGroup;
 			children = (
+				F30ED6CB1932961D0027483C /* Resources */,
 				F30ED69419328ED80027483C /* AppDelegate.h */,
 				F30ED69519328ED80027483C /* AppDelegate.m */,
+				F30ED6BF1932901C0027483C /* Constants.h */,
+				F30ED6C01932901C0027483C /* Constants.m */,
 				F30ED69719328ED80027483C /* Main.storyboard */,
 				F30ED69A19328ED80027483C /* ViewController.h */,
 				F30ED69B19328ED80027483C /* ViewController.m */,
@@ -162,6 +178,34 @@
 				F30ED6B219328ED90027483C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F30ED6CB1932961D0027483C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6CF19329D7A0027483C /* Environment */,
+				F30ED6CC193296260027483C /* Player */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F30ED6CC193296260027483C /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6D61932E6270027483C /* Run.atlas */,
+				F30ED6D41932A0E00027483C /* Jump.png */,
+				F30ED6CD193296390027483C /* Shoot.png */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		F30ED6CF19329D7A0027483C /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6D81932E86C0027483C /* bg.png */,
+				F30ED6D219329E4B0027483C /* brick.png */,
+			);
+			name = Environment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,10 +284,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30ED6D71932E6270027483C /* Run.atlas in Resources */,
 				F30ED69019328ED80027483C /* InfoPlist.strings in Resources */,
+				F30ED6D91932E86C0027483C /* bg.png in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
 				F30ED69919328ED80027483C /* Main.storyboard in Resources */,
+				F30ED6CE193296390027483C /* Shoot.png in Resources */,
+				F30ED6D319329E4B0027483C /* brick.png in Resources */,
+				F30ED6D51932A0E00027483C /* Jump.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30ED6C11932901C0027483C /* Constants.m in Sources */,
 				F30ED69F19328ED80027483C /* MyScene.m in Sources */,
 				F30ED69C19328ED80027483C /* ViewController.m in Sources */,
 				F30ED69619328ED80027483C /* AppDelegate.m in Sources */,
