@@ -11,13 +11,14 @@
 @interface MyScene()
 @property (strong, nonatomic) SKSpriteNode *player;
 @property (strong, nonatomic) SKAction *jump;
-//@property (strong, nonatomic) SKAction *shoot;
 @property (strong, nonatomic) NSMutableArray *runTextures;
 
 @property (strong, nonatomic) SKSpriteNode *floor;
 
 @property (nonatomic) NSTimeInterval dt;
 @property (nonatomic) NSTimeInterval lastUpdateTime;
+
+@property (strong, nonatomic) NSMutableArray *explosionTextures;
 
 @end
 
@@ -45,11 +46,30 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         //self.physicsWorld.gravity = CGVectorMake(0,0);
         
         [self createFloor];
-        
+        [self createPlayer];
+        /*
         SKAction *wait = [SKAction waitForDuration:0.5];
         SKAction *performSelector = [SKAction performSelector:@selector(createPlayer) onTarget:self];
         SKAction *sequence = [SKAction sequence:@[wait, performSelector]];
         [self runAction:sequence];
+         */
+        //enemies
+        SKAction *wait = [SKAction waitForDuration:1];
+        SKAction *callEnemies = [SKAction runBlock:^{
+            [self generateEnemies];
+        }];
+        
+        SKTextureAtlas *explosionAtlas = [SKTextureAtlas atlasNamed:@"EXPLOSION"];
+        NSArray *textureNames = [explosionAtlas textureNames];
+        self.explosionTextures = [NSMutableArray new];
+        for (NSString *name in textureNames) {
+            SKTexture *texture = [explosionAtlas textureNamed:name];
+            [self.explosionTextures addObject:texture];
+        }
+        
+        SKAction *updateEnimies = [SKAction sequence:@[wait, callEnemies]];
+        [self runAction:[SKAction repeatActionForever:updateEnimies]];
+        
 
     }
     return self;
@@ -91,7 +111,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.size];
     self.player.physicsBody.categoryBitMask = kPlayerCategory;
     self.player.physicsBody.dynamic = YES;
-    self.player.physicsBody.contactTestBitMask = kWallCategory;
+    self.player.physicsBody.contactTestBitMask = kEnemyCategory | kEnemyProjectileCategory;
+    self.player.physicsBody.collisionBitMask = kWallCategory;
     self.player.position = CGPointMake(20, 260);
     
     SKAction *changeTexture = [SKAction setTexture:[SKTexture textureWithImageNamed:@"Jump"]];
@@ -115,14 +136,14 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 - (void)createFloor {
-    self.floor = [SKSpriteNode spriteNodeWithImageNamed:@"brick"];
+    self.floor = [SKSpriteNode spriteNodeWithImageNamed:@"Floor"];
     [self.floor setScale:0.25];
     self.floor.name = @"floor";
     
     self.floor.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.floor.size];
     self.floor.physicsBody.categoryBitMask = kWallCategory;
     self.floor.physicsBody.dynamic = NO;
-    self.floor.position = CGPointMake(20, 200);
+    self.floor.position = CGPointMake(self.frame.size.width/2, 175);
     
     [self addChild:self.floor];
 }
@@ -164,8 +185,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     CGPoint location = [node position];
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithImageNamed:@"spark"];
     
-    bullet.position = CGPointMake(location.x + node.size.width, location.y);
-    bullet.scale = 1.0;
+    bullet.position = CGPointMake(location.x + node.size.width/2, location.y);
+    bullet.scale = 0.5;
     
     bullet.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bullet.size.height/5];
     bullet.physicsBody.dynamic = NO;
@@ -181,9 +202,85 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self addChild:bullet];
 }
 
+- (void)generateEnemies
+{
+    if ([self getRandomNumberBetween:0 to:1] == 1) {
+        SKSpriteNode *enemy = [SKSpriteNode spriteNodeWithImageNamed:@"Met"];
+        enemy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:enemy.size];
+        [enemy setScale:0.1];
+        
+        enemy.physicsBody.dynamic = YES;
+        enemy.physicsBody.categoryBitMask = kEnemyCategory;
+        enemy.physicsBody.contactTestBitMask = kPlayerCategory | kPlayerProjectileCategory;
+        enemy.physicsBody.collisionBitMask = kWallCategory;
+        
+        enemy.position = CGPointMake(self.frame.size.width, 260);
+        SKAction *moveEnemy = [SKAction moveToX:0 duration:2];
+        
+        [self addChild:enemy];
+        [enemy runAction:[SKAction sequence:@[moveEnemy, [SKAction removeFromParent]]]];
+    }
+}
+
+-(int)getRandomNumberBetween:(int)from to:(int)to
+{
+    return (int)(from + arc4random() % (to-from+1));
+}
+
 #pragma mark Physics Delegate
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     NSLog(@"Contact: %@",contact);
+    SKPhysicsBody *firstBody;
+    SKPhysicsBody *secondBody;
+    
+    if(contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
+    {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
+    else
+    {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    
+    if ((firstBody.categoryBitMask & kPlayerProjectileCategory) != 0)
+    {
+        SKNode *projectile = (contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ? contact.bodyA.node : contact.bodyB.node;
+        SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ? contact.bodyB.node : contact.bodyA.node;
+        [projectile runAction:[SKAction removeFromParent]];
+        [enemy runAction:[SKAction removeFromParent]];
+        
+        //add explosion
+        SKSpriteNode *explosion = [SKSpriteNode spriteNodeWithTexture:[self.explosionTextures objectAtIndex:0]];
+        explosion.zPosition = 1;
+        explosion.scale = 0.6;
+        explosion.position = contact.bodyA.node.position;
+        
+        [self addChild:explosion];
+        
+        SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
+        SKAction *remove = [SKAction removeFromParent];
+        [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
+    } else if ((firstBody.categoryBitMask & kPlayerCategory) != 0) {
+        SKNode *player = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyA.node : contact.bodyB.node;
+        SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyB.node : contact.bodyA.node;
+        [player runAction:[SKAction removeFromParent]];
+        [enemy runAction:[SKAction removeFromParent]];
+        
+        //add explosion
+        SKSpriteNode *explosion = [SKSpriteNode spriteNodeWithTexture:[self.explosionTextures objectAtIndex:0]];
+        explosion.zPosition = 1;
+        explosion.scale = 0.6;
+        explosion.position = contact.bodyA.node.position;
+        
+        [self addChild:explosion];
+        
+        SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
+        SKAction *remove = [SKAction removeFromParent];
+        [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
+    }
+
 }
 
 

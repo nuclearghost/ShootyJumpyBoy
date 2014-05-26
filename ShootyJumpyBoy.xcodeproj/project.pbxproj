@@ -32,6 +32,9 @@
 		F30ED6D91932E86C0027483C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6D81932E86C0027483C /* bg.png */; };
 		F30ED6DC1932EB960027483C /* Projectile.sks in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6DA1932EB960027483C /* Projectile.sks */; };
 		F30ED6DD1932EB960027483C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6DB1932EB960027483C /* spark.png */; };
+		F30ED6DF1932F4DB0027483C /* Floor.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6DE1932F4DB0027483C /* Floor.png */; };
+		F30ED6E21932F92A0027483C /* Met.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6E11932F92A0027483C /* Met.png */; };
+		F30ED6E41932FC760027483C /* EXPLOSION.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6E31932FC760027483C /* EXPLOSION.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		F30ED6D81932E86C0027483C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		F30ED6DA1932EB960027483C /* Projectile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Projectile.sks; sourceTree = "<group>"; };
 		F30ED6DB1932EB960027483C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		F30ED6DE1932F4DB0027483C /* Floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Floor.png; sourceTree = "<group>"; };
+		F30ED6E11932F92A0027483C /* Met.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Met.png; sourceTree = "<group>"; };
+		F30ED6E31932FC760027483C /* EXPLOSION.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = EXPLOSION.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +148,6 @@
 				F30ED69419328ED80027483C /* AppDelegate.h */,
 				F30ED69519328ED80027483C /* AppDelegate.m */,
 				F30ED6BF1932901C0027483C /* Constants.h */,
-				F30ED6DA1932EB960027483C /* Projectile.sks */,
-				F30ED6DB1932EB960027483C /* spark.png */,
 				F30ED6C01932901C0027483C /* Constants.m */,
 				F30ED69719328ED80027483C /* Main.storyboard */,
 				F30ED69A19328ED80027483C /* ViewController.h */,
@@ -189,6 +193,10 @@
 		F30ED6CB1932961D0027483C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F30ED6DA1932EB960027483C /* Projectile.sks */,
+				F30ED6DB1932EB960027483C /* spark.png */,
+				F30ED6E31932FC760027483C /* EXPLOSION.atlas */,
+				F30ED6E01932F90F0027483C /* Enemies */,
 				F30ED6CF19329D7A0027483C /* Environment */,
 				F30ED6CC193296260027483C /* Player */,
 			);
@@ -208,10 +216,19 @@
 		F30ED6CF19329D7A0027483C /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				F30ED6DE1932F4DB0027483C /* Floor.png */,
 				F30ED6D81932E86C0027483C /* bg.png */,
 				F30ED6D219329E4B0027483C /* brick.png */,
 			);
 			name = Environment;
+			sourceTree = "<group>";
+		};
+		F30ED6E01932F90F0027483C /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6E11932F92A0027483C /* Met.png */,
+			);
+			name = Enemies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,10 +313,13 @@
 				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
+				F30ED6E21932F92A0027483C /* Met.png in Resources */,
 				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
 				F30ED69919328ED80027483C /* Main.storyboard in Resources */,
+				F30ED6E41932FC760027483C /* EXPLOSION.atlas in Resources */,
 				F30ED6CE193296390027483C /* Shoot.png in Resources */,
 				F30ED6D319329E4B0027483C /* brick.png in Resources */,
+				F30ED6DF1932F4DB0027483C /* Floor.png in Resources */,
 				F30ED6D51932A0E00027483C /* Jump.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
