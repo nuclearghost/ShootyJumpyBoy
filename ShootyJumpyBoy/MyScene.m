@@ -23,6 +23,8 @@
 @property (nonatomic) NSInteger score;
 @property (strong, nonatomic) SKLabelNode *scoreDisplay;
 
+@property (nonatomic) BOOL scenePaused;
+
 @end
 
 @implementation MyScene
@@ -49,6 +51,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [self createFloor];
         [self createPlayer];
         [self createScore];
+        [self createPauseButton];
         [self playMusic];
 
         //enemies
@@ -68,6 +71,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         SKAction *updateEnimies = [SKAction sequence:@[wait, callEnemies]];
         [self runAction:[SKAction repeatActionForever:updateEnimies]];
         
+        self.scenePaused = NO;
 
     }
     return self;
@@ -240,6 +244,17 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self runAction:[SKAction repeatActionForever:playSong] withKey:@"BGMusic"];
 }
 
+- (void)createPauseButton {
+    SKButton *pauseButton = [[SKButton alloc] initWithImageNamedNormal:@"Pause" selected:@"PauseSelected"];
+    [pauseButton setPosition:CGPointMake(pauseButton.size.width/2, self.frame.size.height - pauseButton.size.height/2)];
+    [pauseButton setTouchUpInsideTarget:self action:@selector(togglePause)];
+    [self addChild:pauseButton];
+}
+
+- (void) togglePause {
+    self.scenePaused = !self.scenePaused;
+    self.scene.view.paused = self.scenePaused;
+}
 
 #pragma mark Physics Delegate
 -(void)didBeginContact:(SKPhysicsContact *)contact {

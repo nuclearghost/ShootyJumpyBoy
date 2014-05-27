@@ -42,6 +42,8 @@
 		F30ED6F21934009B0027483C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6F11934009B0027483C /* GameOverScene.m */; };
 		F30ED6F6193404780027483C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED6F5193404780027483C /* GameKit.framework */; };
 		F30ED6FB193416990027483C /* My Song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FA193416990027483C /* My Song.m4a */; };
+		F30ED6FE193425A40027483C /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FC193425A40027483C /* Pause.png */; };
+		F30ED6FF193425A40027483C /* PauseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FD193425A40027483C /* PauseSelected.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 		F30ED6F7193410610027483C /* GCHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
 		F30ED6F8193410610027483C /* GCHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
 		F30ED6FA193416990027483C /* My Song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "My Song.m4a"; sourceTree = "<group>"; };
+		F30ED6FC193425A40027483C /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		F30ED6FD193425A40027483C /* PauseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseSelected.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,8 @@
 		F30ED6EB1933AD6C0027483C /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				F30ED6FC193425A40027483C /* Pause.png */,
+				F30ED6FD193425A40027483C /* PauseSelected.png */,
 				F30ED6EC1933AD7A0027483C /* ButtonNormal.png */,
 				F30ED6ED1933AD7A0027483C /* ButtonSelected.png */,
 			);
@@ -383,8 +389,10 @@
 				F30ED69919328ED80027483C /* Main.storyboard in Resources */,
 				F30ED6EF1933AD7A0027483C /* ButtonSelected.png in Resources */,
 				F30ED6E41932FC760027483C /* EXPLOSION.atlas in Resources */,
+				F30ED6FE193425A40027483C /* Pause.png in Resources */,
 				F30ED6CE193296390027483C /* Shoot.png in Resources */,
 				F30ED6D319329E4B0027483C /* brick.png in Resources */,
+				F30ED6FF193425A40027483C /* PauseSelected.png in Resources */,
 				F30ED6FB193416990027483C /* My Song.m4a in Resources */,
 				F30ED6DF1932F4DB0027483C /* Floor.png in Resources */,
 				F30ED6D51932A0E00027483C /* Jump.png in Resources */,
