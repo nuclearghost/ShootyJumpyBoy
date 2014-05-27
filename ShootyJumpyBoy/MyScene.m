@@ -181,7 +181,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 - (void)jumpNode {
-    [self.player.physicsBody applyImpulse:CGVectorMake(0, 25.0) atPoint:self.player.position];
+    [self.player.physicsBody applyImpulse:CGVectorMake(0, 30.0) atPoint:self.player.position];
 }
 
 - (void)shootFromNode:(SKSpriteNode*)node {
@@ -201,6 +201,13 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     SKAction *remove = [SKAction removeFromParent];
     
     [bullet runAction:[SKAction sequence:@[fire, remove]]];
+    
+    
+    NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Projectile" ofType:
+                           @"sks"];
+    SKEmitterNode *projectileEmitter = [NSKeyedUnarchiver unarchiveObjectWithFile:smokePath];
+    //projectileEmitter.position = bullet.position;
+    [bullet addChild:projectileEmitter];
     
     [self addChild:bullet];
 }
