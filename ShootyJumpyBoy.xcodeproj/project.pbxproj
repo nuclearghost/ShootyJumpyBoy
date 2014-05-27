@@ -41,6 +41,7 @@
 		F30ED6EF1933AD7A0027483C /* ButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6ED1933AD7A0027483C /* ButtonSelected.png */; };
 		F30ED6F21934009B0027483C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6F11934009B0027483C /* GameOverScene.m */; };
 		F30ED6F6193404780027483C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED6F5193404780027483C /* GameKit.framework */; };
+		F30ED6FB193416990027483C /* My Song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FA193416990027483C /* My Song.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,9 @@
 		F30ED6F01934009B0027483C /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		F30ED6F11934009B0027483C /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		F30ED6F5193404780027483C /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		F30ED6F7193410610027483C /* GCHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
+		F30ED6F8193410610027483C /* GCHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
+		F30ED6FA193416990027483C /* My Song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "My Song.m4a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 				F30ED69519328ED80027483C /* AppDelegate.m */,
 				F30ED6BF1932901C0027483C /* Constants.h */,
 				F30ED6C01932901C0027483C /* Constants.m */,
+				F30ED6F7193410610027483C /* GCHelper.h */,
+				F30ED6F8193410610027483C /* GCHelper.m */,
 				F30ED69719328ED80027483C /* Main.storyboard */,
 				F30ED69A19328ED80027483C /* ViewController.h */,
 				F30ED69B19328ED80027483C /* ViewController.m */,
@@ -211,6 +217,7 @@
 		F30ED6CB1932961D0027483C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F30ED6F9193416890027483C /* Music */,
 				F30ED6EB1933AD6C0027483C /* Buttons */,
 				F30ED6DA1932EB960027483C /* Projectile.sks */,
 				F30ED6DB1932EB960027483C /* spark.png */,
@@ -270,6 +277,14 @@
 				F30ED6F11934009B0027483C /* GameOverScene.m */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		F30ED6F9193416890027483C /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				F30ED6FA193416990027483C /* My Song.m4a */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +385,7 @@
 				F30ED6E41932FC760027483C /* EXPLOSION.atlas in Resources */,
 				F30ED6CE193296390027483C /* Shoot.png in Resources */,
 				F30ED6D319329E4B0027483C /* brick.png in Resources */,
+				F30ED6FB193416990027483C /* My Song.m4a in Resources */,
 				F30ED6DF1932F4DB0027483C /* Floor.png in Resources */,
 				F30ED6D51932A0E00027483C /* Jump.png in Resources */,
 			);

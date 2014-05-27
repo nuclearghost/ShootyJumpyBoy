@@ -49,6 +49,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [self createFloor];
         [self createPlayer];
         [self createScore];
+        [self playMusic];
 
         //enemies
         SKAction *wait = [SKAction waitForDuration:0.5];
@@ -234,6 +235,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self addChild:self.scoreDisplay];
 }
 
+- (void)playMusic {
+    SKAction *playSong = [SKAction playSoundFileNamed:@"My Song.m4a" waitForCompletion:YES];
+    [self runAction:[SKAction repeatActionForever:playSong] withKey:@"BGMusic"];
+}
+
+
 #pragma mark Physics Delegate
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     NSLog(@"Contact: %@",contact);
@@ -290,6 +297,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
         
         NSLog(@"Game Over");
+        [self removeActionForKey:@"BGMusic"];
         SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
         GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
         [self.scene.view presentScene: goScene transition: reveal];
