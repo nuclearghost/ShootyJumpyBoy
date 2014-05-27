@@ -10,19 +10,24 @@
 
 @implementation GameOverScene
 
--(id) initWithSize:(CGSize)size
+-(id) initWithSize:(CGSize)size andScore:(NSInteger)score;
 {
 	self = [super initWithSize:size];
 	if (self)
 	{
-		/* Setup your scene here */
 		self.backgroundColor = [SKColor colorWithRed:0.21 green:0.63 blue:0.59 alpha:1.0];
 		
 		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
 		myLabel.text = @"Game Over";
-		myLabel.fontSize = 50;
+		myLabel.fontSize = 60;
 		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 3*self.frame.size.height/4);
 		[self addChild:myLabel];
+        
+        SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
+		scoreLabel.text = [NSString stringWithFormat:@"Score: %d", score];
+		scoreLabel.fontSize = 40;
+		scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2);
+		[self addChild:scoreLabel];
         
         [self addRetryButton];
         [self addMenuButton];
@@ -32,7 +37,7 @@
 
 - (void)addRetryButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
-    [backButton setPosition:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Retry"];
     [backButton.title setFontName:@"Copperplate"];
     [backButton.title setFontSize:20.0];
@@ -48,7 +53,7 @@
 
 - (void)addMenuButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
-    [backButton setPosition:CGPointMake(self.frame.size.width/2, self.frame.size.height/4)];
+    [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Menu"];
     [backButton.title setFontName:@"Copperplate"];
     [backButton.title setFontSize:20.0];

@@ -20,6 +20,9 @@
 
 @property (strong, nonatomic) NSMutableArray *explosionTextures;
 
+@property (nonatomic) NSInteger score;
+@property (strong, nonatomic) SKLabelNode *scoreDisplay;
+
 @end
 
 @implementation MyScene
@@ -43,18 +46,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         
         self.physicsWorld.contactDelegate = self;
         
-        //self.physicsWorld.gravity = CGVectorMake(0,0);
-        
         [self createFloor];
         [self createPlayer];
-        /*
-        SKAction *wait = [SKAction waitForDuration:0.5];
-        SKAction *performSelector = [SKAction performSelector:@selector(createPlayer) onTarget:self];
-        SKAction *sequence = [SKAction sequence:@[wait, performSelector]];
-        [self runAction:sequence];
-         */
+        [self createScore];
+
         //enemies
-        SKAction *wait = [SKAction waitForDuration:1];
+        SKAction *wait = [SKAction waitForDuration:0.5];
         SKAction *callEnemies = [SKAction runBlock:^{
             [self generateEnemies];
         }];
@@ -99,6 +96,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         self.dt = 0;
     }
     self.lastUpdateTime = currentTime;
+    self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
     
     [self moveBg];
 }
@@ -227,6 +225,15 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     return (int)(from + arc4random() % (to-from+1));
 }
 
+- (void)createScore {
+    self.score = 0;
+    self.scoreDisplay = [[SKLabelNode alloc] initWithFontNamed:@"Copperplate"];
+    self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
+    self.scoreDisplay.fontSize = 30;
+    self.scoreDisplay.position = CGPointMake(self.frame.size.width, self.frame.size.height - 30);
+    [self addChild:self.scoreDisplay];
+}
+
 #pragma mark Physics Delegate
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     NSLog(@"Contact: %@",contact);
@@ -262,6 +269,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
         SKAction *remove = [SKAction removeFromParent];
         [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
+        
+        self.score += 10;
     } else if ((firstBody.categoryBitMask & kPlayerCategory) != 0) {
         SKNode *player = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyA.node : contact.bodyB.node;
         SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyB.node : contact.bodyA.node;
@@ -282,7 +291,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         
         NSLog(@"Game Over");
         SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
-        GameOverScene* goScene = [GameOverScene sceneWithSize:self.view.bounds.size];
+        GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
         [self.scene.view presentScene: goScene transition: reveal];
     }
 
