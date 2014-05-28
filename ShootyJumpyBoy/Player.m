@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) NSMutableArray *runTextures;
 
+@property (nonatomic) BOOL onGround;
+
 @end
 
 @implementation Player
@@ -21,11 +23,13 @@
     self.name = @"player";
     [self setScale:0.2];
     
+    self.doubleJump = NO;
+    
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = kPlayerCategory;
-    self.physicsBody.dynamic = YES;
-    self.physicsBody.contactTestBitMask = kEnemyCategory | kEnemyProjectileCategory;
-    self.physicsBody.collisionBitMask = kWallCategory;
+    self.physicsBody.restitution = 0;
+    self.physicsBody.contactTestBitMask = kEnemyCategory | kEnemyProjectileCategory | kWallCategory;
+    //self.physicsBody.collisionBitMask = kWallCategory;
     self.position = CGPointMake(20, 260);
     
     
@@ -42,14 +46,20 @@
         [self.runTextures addObject:texture];
     }
     
-    SKAction *run = [SKAction animateWithTextures:self.runTextures timePerFrame:0.1];
-    [self runAction:[SKAction repeatActionForever:run]];
+    //SKAction *run = [SKAction animateWithTextures:self.runTextures timePerFrame:0.1];
+    //[self runAction:[SKAction repeatActionForever:run]];
     
     return self;
 }
 
+- (void)setGroundContact:(BOOL)contact {
+    self.onGround = contact;
+}
+
 - (void)jumpNode {
-    [self.physicsBody applyImpulse:CGVectorMake(0, 30.0) atPoint:self.position];
+    if (self.onGround || self.doubleJump) {
+        [self.physicsBody applyImpulse:CGVectorMake(0, 30.0) atPoint:self.position];
+    }
 }
 
 @end

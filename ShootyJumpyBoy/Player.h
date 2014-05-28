@@ -13,8 +13,11 @@
 @interface Player : SKSpriteNode
 
 - (id)init;
+- (void)setGroundContact:(BOOL)contact;
 
 @property (strong,nonatomic) SKAction *jumpAction;
 @property (strong,nonatomic) SKAction *shootAction;
+
+@property (nonatomic) BOOL doubleJump;
 
 @end
