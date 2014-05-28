@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSMutableArray *runTextures;
 
 @property (nonatomic) BOOL onGround;
+@property (nonatomic) BOOL doubleJumped;
+
 
 @end
 
@@ -23,7 +25,7 @@
     self.name = @"player";
     [self setScale:0.2];
     
-    self.doubleJump = NO;
+    self.doubleJump = YES;
     
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = kPlayerCategory;
@@ -35,7 +37,6 @@
     
     SKAction *changeTexture = [SKAction setTexture:[SKTexture textureWithImageNamed:@"Jump"]];
     SKAction *impulse = [SKAction performSelector:@selector(jumpNode) onTarget:self];
-    //SKAction *changeTextureBack = [SKAction setTexture:[SKTexture textureWithImageNamed:@"Shoot"]];
     self.jumpAction = [SKAction sequence:@[changeTexture, impulse]];
     
     SKTextureAtlas *runAtlas = [SKTextureAtlas atlasNamed:@"Run"];
@@ -56,13 +57,16 @@
     self.onGround = contact;
     if (contact) {
         [self runAction: [SKAction setTexture:[SKTexture textureWithImageNamed:@"Shoot"]]];
-
+        self.doubleJumped = NO;
     }
 }
 
 - (void)jumpNode {
-    if (self.onGround || self.doubleJump) {
+    if (self.onGround) {
         [self.physicsBody applyImpulse:CGVectorMake(0, 30.0) atPoint:self.position];
+    } else if (self.doubleJump && !self.doubleJumped) {
+        self.doubleJumped = YES;
+        [self.physicsBody applyImpulse:CGVectorMake(0, 40.0) atPoint:self.position];
     }
 }
 
