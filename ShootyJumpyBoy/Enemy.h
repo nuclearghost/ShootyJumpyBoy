@@ -1,5 +1,5 @@
 //
-//  Player.h
+//  Enemy.h
 //  ShootyJumpyBoy
 //
 //  Created by Mark Meyer on 5/28/14.
@@ -10,13 +10,11 @@
 
 #import "Constants.h"
 
-@interface Player : SKSpriteNode
+@interface Enemy : SKSpriteNode
 
-- (id)init;
+-(id)initEnemyOfType:(int32_t)type atPoint:(CGPoint)point;
 - (void)setGroundContact:(BOOL)contact;
 
 @property (strong,nonatomic) SKAction *jumpAction;
-
-@property (nonatomic) BOOL doubleJump;
 
 @end

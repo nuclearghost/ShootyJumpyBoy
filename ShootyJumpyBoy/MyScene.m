@@ -184,20 +184,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (void)generateEnemies
 {
     if ([self getRandomNumberBetween:0 to:1] == 1) {
-        SKSpriteNode *enemy = [SKSpriteNode spriteNodeWithImageNamed:@"Met"];
-        enemy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:enemy.size];
-        [enemy setScale:0.1];
-        
-        enemy.physicsBody.dynamic = YES;
-        enemy.physicsBody.categoryBitMask = kEnemyCategory;
-        enemy.physicsBody.contactTestBitMask = kPlayerCategory | kPlayerProjectileCategory;
-        enemy.physicsBody.collisionBitMask = kWallCategory;
-        
-        enemy.position = CGPointMake(self.frame.size.width, 260);
-        SKAction *moveEnemy = [SKAction moveToX:0 duration:2];
-        
-        [self addChild:enemy];
-        [enemy runAction:[SKAction sequence:@[moveEnemy, [SKAction removeFromParent]]]];
+        Enemy *enemyNode = [[Enemy alloc] initEnemyOfType:1 atPoint:CGPointMake(self.frame.size.width, 260)];
+        [self addChild:enemyNode];
     }
 }
 

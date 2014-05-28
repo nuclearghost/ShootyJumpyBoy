@@ -13,6 +13,7 @@
 #import "GameOverScene.h"
 
 #import "Player.h"
+#import "Enemy.h"
 
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 
