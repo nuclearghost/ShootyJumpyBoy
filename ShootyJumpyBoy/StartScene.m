@@ -14,6 +14,7 @@
 
 -(id) initWithSize:(CGSize)size
 {
+    NSLog(@"CGSize: %@", NSStringFromCGSize(size));
 	self = [super initWithSize:size];
 	if (self)
 	{

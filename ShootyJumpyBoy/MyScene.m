@@ -39,10 +39,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     return CGPointMake(a.x * b, a.y * b);
 }
 
--(id)initWithSize:(CGSize)size {    
+-(id)initWithSize:(CGSize)size {
+    
+    NSLog(@"CGSize: %@", NSStringFromCGSize(size));
+
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
-        
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         [self initalizingScrollingBackground];
         
@@ -101,7 +102,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         self.dt = 0;
     }
     self.lastUpdateTime = currentTime;
-    self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
+    self.scoreDisplay.text = [NSString stringWithFormat:@"%ld", (long)self.score];
     
     [self moveBg];
 }
@@ -240,7 +241,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (void)createScore {
     self.score = 0;
     self.scoreDisplay = [[SKLabelNode alloc] initWithFontNamed:@"Copperplate"];
-    self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
+    self.scoreDisplay.text = [NSString stringWithFormat:@"%ld", (long)self.score];
     self.scoreDisplay.fontSize = 30;
     self.scoreDisplay.position = CGPointMake(self.frame.size.width, self.frame.size.height - 30);
     [self addChild:self.scoreDisplay];

@@ -8,11 +8,16 @@
 
 #import "AppDelegate.h"
 
+#import "Flurry.h"
+#import "FlurryAds.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Flurry startSession:@"SX36VDWCTTQJKWQ8547P"];
+    [FlurryAds initialize:self.window.rootViewController];
+    [FlurryAds enableTestAds:YES];
     return YES;
 }
 							

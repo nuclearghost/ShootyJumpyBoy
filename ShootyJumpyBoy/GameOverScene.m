@@ -24,13 +24,16 @@
 		[self addChild:myLabel];
         
         SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
-		scoreLabel.text = [NSString stringWithFormat:@"Score: %d", score];
+		scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)score];
 		scoreLabel.fontSize = 40;
 		scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2);
 		[self addChild:scoreLabel];
         
         [self addRetryButton];
         [self addMenuButton];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showAd" object:nil];
+        
 	}
 	return self;
 }
@@ -47,6 +50,9 @@
 
 - (void)transitionStart:(NSNotification *)notification {
     NSLog(@"Transition to start");
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hideAd" object:nil];
+    
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
     MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];    //  Optionally, insert code to configure the new scene.
     [self.scene.view presentScene: myScene transition: reveal];}
@@ -57,12 +63,15 @@
     [backButton.title setText:@"Menu"];
     [backButton.title setFontName:@"Copperplate"];
     [backButton.title setFontSize:20.0];
-    [backButton setTouchUpInsideTarget:self action:@selector(transitionOptions:)];
+    [backButton setTouchUpInsideTarget:self action:@selector(transitionMenu:)];
     [self addChild:backButton];
 }
 
-- (void)transitionOptions:(NSNotification *)notification {
+- (void)transitionMenu:(NSNotification *)notification {
     NSLog(@"Transition to options");
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hideAd" object:nil];
+    
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
     StartScene* startScene = [StartScene sceneWithSize:self.view.bounds.size];
     [self.scene.view presentScene: startScene transition: reveal];
