@@ -40,19 +40,6 @@
     [backButton.title setFontSize:20.0];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionStart:)];
     [self addChild:backButton];
-    /*
-    SKLabelNode* startLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
-    startLabel.text = @"Start";
-    startLabel.fontSize = 30;
-    startLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    [self addChild:startLabel];
-    
-    KKButtonBehavior *buttonBehavior = [KKButtonBehavior behavior];
-    buttonBehavior.selectedScale = 1.2;
-    [startLabel addBehavior:buttonBehavior];
-    
-    [self observeNotification:KKButtonDidExecuteNotification selector:@selector(transitionStart:) object:startLabel];
-     */
 }
 
 - (void)transitionStart:(NSNotification *)notification {
@@ -69,19 +56,6 @@
     [backButton.title setFontSize:20.0];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionOptions:)];
     [self addChild:backButton];
-    /*
-    SKLabelNode* optionLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
-    optionLabel.text = @"Options";
-    optionLabel.fontSize = 30;
-    optionLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/4);
-    [self addChild:optionLabel];
-    
-    KKButtonBehavior *buttonBehavior = [KKButtonBehavior behavior];
-    buttonBehavior.selectedScale = 1.2;
-    [optionLabel addBehavior:buttonBehavior];
-    
-    [self observeNotification:KKButtonDidExecuteNotification selector:@selector(transitionOptions:) object:optionLabel];
-     */
 }
 
 - (void)transitionOptions:(NSNotification *)notification {
