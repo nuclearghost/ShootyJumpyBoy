@@ -29,7 +29,7 @@
     self.physicsBody.categoryBitMask = kPlayerCategory;
     self.physicsBody.restitution = 0;
     self.physicsBody.contactTestBitMask = kEnemyCategory | kEnemyProjectileCategory | kWallCategory;
-    //self.physicsBody.collisionBitMask = kWallCategory;
+    self.physicsBody.collisionBitMask ^= kPlayerProjectileCategory;
     self.position = CGPointMake(20, 260);
     
     
@@ -54,6 +54,10 @@
 
 - (void)setGroundContact:(BOOL)contact {
     self.onGround = contact;
+    if (contact) {
+        [self runAction: [SKAction setTexture:[SKTexture textureWithImageNamed:@"Shoot"]]];
+
+    }
 }
 
 - (void)jumpNode {
