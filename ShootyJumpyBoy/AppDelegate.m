@@ -15,6 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"SX36VDWCTTQJKWQ8547P"];
     [FlurryAds initialize:self.window.rootViewController];
     [FlurryAds enableTestAds:YES];

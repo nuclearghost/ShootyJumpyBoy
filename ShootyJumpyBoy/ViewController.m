@@ -4,7 +4,7 @@
 //
 //  Created by Mark Meyer on 5/25/14.
 //  Copyright (c) 2014 Mark Meyer. All rights reserved.
-//
+// Using notification center from http://stackoverflow.com/questions/21664295/hide-show-iads-in-spritekit
 
 #import "ViewController.h"
 #import "StartScene.h"
