@@ -44,6 +44,7 @@
 		F30ED6FB193416990027483C /* My Song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FA193416990027483C /* My Song.m4a */; };
 		F30ED6FE193425A40027483C /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FC193425A40027483C /* Pause.png */; };
 		F30ED6FF193425A40027483C /* PauseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FD193425A40027483C /* PauseSelected.png */; };
+		F3B9ABAD19361B5200C1B843 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABAC19361B5200C1B843 /* Player.m */; };
 		F3BAE6E91935940100BF97E6 /* libFlurry_5.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6E81935940100BF97E6 /* libFlurry_5.0.0.a */; };
 		F3BAE6EE1935947000BF97E6 /* libFlurryAds_5.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6ED1935947000BF97E6 /* libFlurryAds_5.0.0.a */; };
 		F3BAE6F01935949800BF97E6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6EF1935949800BF97E6 /* AdSupport.framework */; };
@@ -114,6 +115,8 @@
 		F30ED6FA193416990027483C /* My Song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "My Song.m4a"; sourceTree = "<group>"; };
 		F30ED6FC193425A40027483C /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
 		F30ED6FD193425A40027483C /* PauseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseSelected.png; sourceTree = "<group>"; };
+		F3B9ABAB19361B5200C1B843 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		F3B9ABAC19361B5200C1B843 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		F3BAE6E71935940100BF97E6 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		F3BAE6E81935940100BF97E6 /* libFlurry_5.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.0.0.a; sourceTree = "<group>"; };
 		F3BAE6EB1935947000BF97E6 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdDelegate.h; sourceTree = "<group>"; };
@@ -202,8 +205,7 @@
 		F30ED68B19328ED80027483C /* ShootyJumpyBoy */ = {
 			isa = PBXGroup;
 			children = (
-				F3BAE6EA1935947000BF97E6 /* FlurryAds */,
-				F3BAE6E61935940100BF97E6 /* Flurry */,
+				F3B9ABAE19361B5C00C1B843 /* Nodes */,
 				F30ED6CB1932961D0027483C /* Resources */,
 				F30ED6F4193400AA0027483C /* Scenes */,
 				F30ED69419328ED80027483C /* AppDelegate.h */,
@@ -227,6 +229,8 @@
 		F30ED68C19328ED80027483C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F3BAE6EA1935947000BF97E6 /* FlurryAds */,
+				F3BAE6E61935940100BF97E6 /* Flurry */,
 				F30ED68D19328ED80027483C /* ShootyJumpyBoy-Info.plist */,
 				F30ED68E19328ED80027483C /* InfoPlist.strings */,
 				F30ED69119328ED80027483C /* main.m */,
@@ -326,6 +330,15 @@
 				F30ED6FA193416990027483C /* My Song.m4a */,
 			);
 			name = Music;
+			sourceTree = "<group>";
+		};
+		F3B9ABAE19361B5C00C1B843 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				F3B9ABAB19361B5200C1B843 /* Player.h */,
+				F3B9ABAC19361B5200C1B843 /* Player.m */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 		F3BAE6E61935940100BF97E6 /* Flurry */ = {
@@ -475,6 +488,7 @@
 				F30ED69C19328ED80027483C /* ViewController.m in Sources */,
 				F30ED69619328ED80027483C /* AppDelegate.m in Sources */,
 				F30ED6F21934009B0027483C /* GameOverScene.m in Sources */,
+				F3B9ABAD19361B5200C1B843 /* Player.m in Sources */,
 				F30ED69219328ED80027483C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

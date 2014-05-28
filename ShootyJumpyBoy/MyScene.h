@@ -12,6 +12,8 @@
 
 #import "GameOverScene.h"
 
+#import "Player.h"
+
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 
 @end

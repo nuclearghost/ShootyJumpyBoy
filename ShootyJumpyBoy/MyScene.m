@@ -9,7 +9,7 @@
 #import "MyScene.h"
 
 @interface MyScene()
-@property (strong, nonatomic) SKSpriteNode *player;
+@property (strong, nonatomic) Player *player;
 @property (strong, nonatomic) SKAction *jump;
 @property (strong, nonatomic) NSMutableArray *runTextures;
 
@@ -83,7 +83,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         if (location.x <= self.size.width/2) {
-            [self.player runAction:self.jump];
+            [self.player runAction:self.player.jumpAction];
         } else {
             [self shootFromNode:self.player];
         }
@@ -108,34 +108,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 - (void)createPlayer {
-    self.player = [SKSpriteNode spriteNodeWithImageNamed:@"Shoot"];
-    self.player.name = @"player";
-    [self.player setScale:0.2];
-    
-    self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.size];
-    self.player.physicsBody.categoryBitMask = kPlayerCategory;
-    self.player.physicsBody.dynamic = YES;
-    self.player.physicsBody.contactTestBitMask = kEnemyCategory | kEnemyProjectileCategory;
-    self.player.physicsBody.collisionBitMask = kWallCategory;
-    self.player.position = CGPointMake(20, 260);
-    
-    SKAction *changeTexture = [SKAction setTexture:[SKTexture textureWithImageNamed:@"Jump"]];
-    SKAction *impulse = [SKAction performSelector:@selector(jumpNode) onTarget:self];
-    //SKAction *changeTextureBack = [SKAction setTexture:[SKTexture textureWithImageNamed:@"Shoot"]];
-    self.jump = [SKAction sequence:@[changeTexture, impulse]];
-    
-    SKTextureAtlas *runAtlas = [SKTextureAtlas atlasNamed:@"Run"];
-    NSArray *textureNames = [runAtlas textureNames];
-    self.runTextures = [NSMutableArray new];
-    for (NSString *name in textureNames) {
-        SKTexture *texture = [runAtlas textureNamed:name];
-        [self.runTextures addObject:texture];
-    }
-    
+    self.player = [[Player alloc] init];
     [self addChild:self.player];
-    
-    SKAction *run = [SKAction animateWithTextures:self.runTextures timePerFrame:0.1];
-    [self.player runAction:[SKAction repeatActionForever:run]];
     
 }
 
@@ -181,10 +155,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
      }];
 }
 
-- (void)jumpNode {
-    [self.player.physicsBody applyImpulse:CGVectorMake(0, 30.0) atPoint:self.player.position];
-}
-
 - (void)shootFromNode:(SKSpriteNode*)node {
     CGPoint location = [node position];
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithImageNamed:@"spark"];
@@ -203,11 +173,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     [bullet runAction:[SKAction sequence:@[fire, remove]]];
     
-    
     NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Projectile" ofType:
                            @"sks"];
     SKEmitterNode *projectileEmitter = [NSKeyedUnarchiver unarchiveObjectWithFile:smokePath];
-    //projectileEmitter.position = bullet.position;
     [bullet addChild:projectileEmitter];
     
     [self addChild:bullet];
