@@ -12,7 +12,10 @@
 
 @interface Enemy : SKSpriteNode
 
--(id)initEnemyOfType:(int32_t)type atPoint:(CGPoint)point;
+- (id)initEnemyOfType:(int32_t)type atPoint:(CGPoint)point;
+
+- (BOOL)decrementHealthBy:(NSUInteger)amount;
+
 - (void)setGroundContact:(BOOL)contact;
 
 @property (strong,nonatomic) SKAction *jumpAction;

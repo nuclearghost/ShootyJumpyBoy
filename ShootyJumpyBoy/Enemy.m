@@ -25,7 +25,10 @@
     self.physicsBody.categoryBitMask = kEnemyCategory;
     self.physicsBody.restitution = 0;
     self.physicsBody.contactTestBitMask = kPlayerCategory | kPlayerProjectileCategory;
+    self.physicsBody.collisionBitMask ^= kPlayerProjectileCategory;
     self.position = point;
+    
+    self.health = 2;
     
     SKAction *moveEnemy = [SKAction moveToX:0 duration:2];
     
@@ -33,6 +36,17 @@
     
     return self;
 }
+
+- (BOOL)decrementHealthBy:(NSUInteger)amount {
+    self.health -= amount;
+    if (self.health <= 0){
+        return YES;
+    } else {
+        [self runAction:[SKAction playSoundFileNamed:@"hit.wav" waitForCompletion:NO]];
+        return NO;
+    }
+}
+
 
 - (void)setGroundContact:(BOOL)contact {
     /*

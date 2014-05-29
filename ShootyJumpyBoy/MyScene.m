@@ -171,7 +171,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     SKAction *fire = [SKAction moveToX:self.frame.size.width + bullet.size.width duration:2];
     SKAction *remove = [SKAction removeFromParent];
     SKAction *laserSound = [SKAction playSoundFileNamed:@"laser.wav" waitForCompletion:NO];
-
+    
     [bullet runAction:[SKAction sequence:@[laserSound, fire, remove]]];
     
     NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Projectile" ofType:
@@ -241,28 +241,32 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     if ((firstBody.categoryBitMask & kPlayerProjectileCategory) != 0)
     {
         SKNode *projectile = (contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ? contact.bodyA.node : contact.bodyB.node;
-        SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ? contact.bodyB.node : contact.bodyA.node;
+        Enemy *enemy = (Enemy*)((contact.bodyA.categoryBitMask & kPlayerCategory) ?
+                                contact.bodyB.node : contact.bodyA.node);
+        
+        if ([enemy decrementHealthBy:1]) {
+            [enemy runAction:[SKAction removeFromParent]];
+            
+            //add explosion
+            SKSpriteNode *explosion = [SKSpriteNode spriteNodeWithTexture:[self.explosionTextures objectAtIndex:0]];
+            explosion.zPosition = 1;
+            explosion.scale = 0.6;
+            explosion.position = contact.bodyA.node.position;
+            
+            [self addChild:explosion];
+            
+            SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
+            SKAction *remove = [SKAction removeFromParent];
+            SKAction *explosionSound = [SKAction playSoundFileNamed:@"explosion.wav" waitForCompletion:NO];
+            [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
+            
+            self.score += 10;
+        }
         [projectile runAction:[SKAction removeFromParent]];
-        [enemy runAction:[SKAction removeFromParent]];
-        
-        //add explosion
-        SKSpriteNode *explosion = [SKSpriteNode spriteNodeWithTexture:[self.explosionTextures objectAtIndex:0]];
-        explosion.zPosition = 1;
-        explosion.scale = 0.6;
-        explosion.position = contact.bodyA.node.position;
-        
-        [self addChild:explosion];
-        
-        SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
-        SKAction *remove = [SKAction removeFromParent];
-        SKAction *explosionSound = [SKAction playSoundFileNamed:@"explosion.wav" waitForCompletion:NO];
-        [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
-        
-        self.score += 10;
     } else if ((firstBody.categoryBitMask & kPlayerCategory) != 0) {
         if (secondBody.categoryBitMask & (kEnemyCategory | kEnemyProjectileCategory |kHazardCategory)) {
             SKNode *player = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyA.node : contact.bodyB.node;
-            SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyB.node : contact.bodyA.node;
+            SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ? contact.bodyB.node : contact.bodyA.node;
             [player runAction:[SKAction removeFromParent]];
             [enemy runAction:[SKAction removeFromParent]];
             
