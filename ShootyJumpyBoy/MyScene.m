@@ -170,8 +170,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     SKAction *fire = [SKAction moveToX:self.frame.size.width + bullet.size.width duration:2];
     SKAction *remove = [SKAction removeFromParent];
-    
-    [bullet runAction:[SKAction sequence:@[fire, remove]]];
+    SKAction *laserSound = [SKAction playSoundFileNamed:@"laser.wav" waitForCompletion:NO];
+
+    [bullet runAction:[SKAction sequence:@[laserSound, fire, remove]]];
     
     NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Projectile" ofType:
                            @"sks"];
@@ -254,7 +255,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         
         SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
         SKAction *remove = [SKAction removeFromParent];
-        [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
+        SKAction *explosionSound = [SKAction playSoundFileNamed:@"explosion.wav" waitForCompletion:NO];
+        [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
         
         self.score += 10;
     } else if ((firstBody.categoryBitMask & kPlayerCategory) != 0) {
@@ -274,13 +276,16 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             
             SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
             SKAction *remove = [SKAction removeFromParent];
-            [explosion runAction:[SKAction sequence:@[explosionAction,remove]]];
+            SKAction *explosionSound = [SKAction playSoundFileNamed:@"explosion2.wav" waitForCompletion:NO];
+            [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction,remove]] completion:^(){
+                NSLog(@"Game Over");
+                [self removeActionForKey:@"BGMusic"];
+                SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
+                GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
+                [self.scene.view presentScene: goScene transition: reveal];
+            }];
             
-            NSLog(@"Game Over");
-            [self removeActionForKey:@"BGMusic"];
-            SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
-            GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
-            [self.scene.view presentScene: goScene transition: reveal];
+            
         } else if (secondBody.categoryBitMask & kWallCategory) {
             [self.player setGroundContact:YES];
         }
@@ -303,10 +308,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         secondBody = contact.bodyA;
     }
     if ((firstBody.categoryBitMask & kPlayerCategory) != 0) {
-        if (secondBody.categoryBitMask & kWallCategory) {
+        if ((secondBody.categoryBitMask & kWallCategory) != 0) {
             [self.player setGroundContact:NO];
         }
-
+        
     }
 }
 

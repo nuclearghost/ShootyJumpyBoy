@@ -8,6 +8,12 @@
 
 #import "Enemy.h"
 
+@interface Enemy()
+
+@property (nonatomic) NSUInteger health;
+
+@end
+
 @implementation Enemy
 
 -(id)initEnemyOfType:(int32_t)type atPoint:(CGPoint)point {

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30847781936BB5700848FAE /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847701936BB5700848FAE /* explosion.wav */; };
+		F30847791936BB5700848FAE /* explosion2.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847711936BB5700848FAE /* explosion2.wav */; };
+		F308477A1936BB5700848FAE /* hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847721936BB5700848FAE /* hit.wav */; };
+		F308477B1936BB5700848FAE /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847731936BB5700848FAE /* jump.wav */; };
+		F308477C1936BB5700848FAE /* laser.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847741936BB5700848FAE /* laser.wav */; };
+		F308477D1936BB5700848FAE /* pickup.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847751936BB5700848FAE /* pickup.wav */; };
+		F308477E1936BB5700848FAE /* powerup.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847761936BB5700848FAE /* powerup.wav */; };
+		F308477F1936BB5700848FAE /* select.wav in Resources */ = {isa = PBXBuildFile; fileRef = F30847771936BB5700848FAE /* select.wav */; };
 		F30ED68419328ED80027483C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68319328ED80027483C /* Foundation.framework */; };
 		F30ED68619328ED80027483C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68519328ED80027483C /* CoreGraphics.framework */; };
 		F30ED68819328ED80027483C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68719328ED80027483C /* UIKit.framework */; };
@@ -67,6 +75,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F30847701936BB5700848FAE /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		F30847711936BB5700848FAE /* explosion2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion2.wav; sourceTree = "<group>"; };
+		F30847721936BB5700848FAE /* hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hit.wav; sourceTree = "<group>"; };
+		F30847731936BB5700848FAE /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
+		F30847741936BB5700848FAE /* laser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser.wav; sourceTree = "<group>"; };
+		F30847751936BB5700848FAE /* pickup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pickup.wav; sourceTree = "<group>"; };
+		F30847761936BB5700848FAE /* powerup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerup.wav; sourceTree = "<group>"; };
+		F30847771936BB5700848FAE /* select.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = select.wav; sourceTree = "<group>"; };
 		F30ED68019328ED80027483C /* ShootyJumpyBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootyJumpyBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30ED68319328ED80027483C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F30ED68519328ED80027483C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,6 +183,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F308476F1936BB4200848FAE /* SoundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				F30847701936BB5700848FAE /* explosion.wav */,
+				F30847711936BB5700848FAE /* explosion2.wav */,
+				F30847721936BB5700848FAE /* hit.wav */,
+				F30847731936BB5700848FAE /* jump.wav */,
+				F30847741936BB5700848FAE /* laser.wav */,
+				F30847751936BB5700848FAE /* pickup.wav */,
+				F30847761936BB5700848FAE /* powerup.wav */,
+				F30847771936BB5700848FAE /* select.wav */,
+			);
+			name = SoundEffects;
+			sourceTree = "<group>";
+		};
 		F30ED67719328ED80027483C = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +294,7 @@
 		F30ED6CB1932961D0027483C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F308476F1936BB4200848FAE /* SoundEffects */,
 				F30ED6F9193416890027483C /* Music */,
 				F30ED6EB1933AD6C0027483C /* Buttons */,
 				F30ED6DA1932EB960027483C /* Projectile.sks */,
@@ -449,22 +481,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F308477A1936BB5700848FAE /* hit.wav in Resources */,
+				F308477B1936BB5700848FAE /* jump.wav in Resources */,
 				F30ED6DD1932EB960027483C /* spark.png in Resources */,
 				F30ED6D71932E6270027483C /* Run.atlas in Resources */,
 				F30ED69019328ED80027483C /* InfoPlist.strings in Resources */,
+				F308477D1936BB5700848FAE /* pickup.wav in Resources */,
 				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
+				F308477E1936BB5700848FAE /* powerup.wav in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
 				F30ED6EE1933AD7A0027483C /* ButtonNormal.png in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6E21932F92A0027483C /* Met.png in Resources */,
 				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
 				F30ED69919328ED80027483C /* Main.storyboard in Resources */,
+				F30847781936BB5700848FAE /* explosion.wav in Resources */,
 				F30ED6EF1933AD7A0027483C /* ButtonSelected.png in Resources */,
 				F30ED6E41932FC760027483C /* EXPLOSION.atlas in Resources */,
 				F30ED6FE193425A40027483C /* Pause.png in Resources */,
 				F30ED6CE193296390027483C /* Shoot.png in Resources */,
+				F308477F1936BB5700848FAE /* select.wav in Resources */,
 				F30ED6D319329E4B0027483C /* brick.png in Resources */,
 				F30ED6FF193425A40027483C /* PauseSelected.png in Resources */,
+				F30847791936BB5700848FAE /* explosion2.wav in Resources */,
+				F308477C1936BB5700848FAE /* laser.wav in Resources */,
 				F30ED6FB193416990027483C /* My Song.m4a in Resources */,
 				F30ED6DF1932F4DB0027483C /* Floor.png in Resources */,
 				F30ED6D51932A0E00027483C /* Jump.png in Resources */,

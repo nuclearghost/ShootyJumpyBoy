@@ -63,9 +63,12 @@
 
 - (void)jumpNode {
     if (self.onGround) {
+        [self runAction:[SKAction playSoundFileNamed:@"jump.wav" waitForCompletion:NO]];
         [self.physicsBody applyImpulse:CGVectorMake(0, 30.0) atPoint:self.position];
     } else if (self.doubleJump && !self.doubleJumped) {
         self.doubleJumped = YES;
+        [self runAction:[SKAction playSoundFileNamed:@"jump.wav" waitForCompletion:NO]];
+        [self.physicsBody setVelocity:CGVectorMake(0, 0)];
         [self.physicsBody applyImpulse:CGVectorMake(0, 40.0) atPoint:self.position];
     }
 }
