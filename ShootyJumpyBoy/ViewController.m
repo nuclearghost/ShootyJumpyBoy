@@ -58,7 +58,7 @@
 {
     if ([notification.name isEqualToString:@"hideAd"]) {
         [FlurryAds removeAdFromSpace:@"BANNER_MAIN_VIEW"];
-    }else if ([notification.name isEqualToString:@"showAd"]) {
+    } else if ([notification.name isEqualToString:@"showAd"]) {
         [FlurryAds fetchAndDisplayAdForSpace:@"BANNER_MAIN_VIEW" view:self.view size:BANNER_BOTTOM];
     }
 }
