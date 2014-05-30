@@ -24,6 +24,7 @@
 @property (strong, nonatomic) SKLabelNode *scoreDisplay;
 
 @property (nonatomic) BOOL scenePaused;
+@property (nonatomic) BOOL gameOverPending;
 
 @end
 
@@ -69,11 +70,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             [self.explosionTextures addObject:texture];
         }
         
-        SKAction *updateEnimies = [SKAction sequence:@[wait, callEnemies]];
-        [self runAction:[SKAction repeatActionForever:updateEnimies]];
+        SKAction *updateEnemies = [SKAction sequence:@[wait, callEnemies]];
+        [self runAction:[SKAction repeatActionForever:updateEnemies]];
         
         self.scenePaused = NO;
-        
+        self.gameOverPending = NO;
     }
     return self;
 }
@@ -105,6 +106,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     self.scoreDisplay.text = [NSString stringWithFormat:@"%ld", (long)self.score];
     
     [self moveBg];
+    [self checkPlayerBounds];
 }
 
 - (void)createPlayer {
@@ -188,6 +190,12 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         Enemy *enemyNode = [[Enemy alloc] initEnemyOfType:1 atPoint:CGPointMake(self.frame.size.width, 260)];
         [self addChild:enemyNode];
     }
+    
+    if ([self getRandomNumberBetween:0 to:1] == 1) {
+        Platform *platform = [[Platform alloc] initAtPoint:CGPointMake(self.frame.size.width, 200)];
+        [self addChild:platform];
+    }
+
 }
 
 -(int)getRandomNumberBetween:(int)from to:(int)to
@@ -219,6 +227,26 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (void) togglePause {
     self.scenePaused = !self.scenePaused;
     self.scene.view.paused = self.scenePaused;
+}
+
+- (void)gameOver {
+    NSLog(@"Game Over");
+    [self removeActionForKey:@"BGMusic"];
+    SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
+    GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
+    [self.scene.view presentScene: goScene transition: reveal];
+}
+
+- (void)checkPlayerBounds {
+    
+    if (!self.gameOverPending && (self.player.position.x + self.player.size.width/2 < 0 ||
+        self.player.position.x - self.player.size.width/2 > self.size.width ||
+        self.player.position.y + self.player.size.height/2 < 0))// ||
+        //self.player.position.y - self.player.size.height/2 > self.size.height)
+    {
+        self.gameOverPending = YES;
+        [self gameOver];
+    }
 }
 
 #pragma mark Physics Delegate
@@ -281,13 +309,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
             SKAction *remove = [SKAction removeFromParent];
             SKAction *explosionSound = [SKAction playSoundFileNamed:@"explosion2.wav" waitForCompletion:NO];
-            [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction,remove]] completion:^(){
-                NSLog(@"Game Over");
-                [self removeActionForKey:@"BGMusic"];
-                SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
-                GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
-                [self.scene.view presentScene: goScene transition: reveal];
-            }];
+            [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction,remove]] completion:^(){ [self gameOver]; }];
             
             
         } else if (secondBody.categoryBitMask & kWallCategory) {
