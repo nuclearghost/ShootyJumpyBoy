@@ -40,7 +40,7 @@
 
 - (void)addRetryButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
-    [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
+    [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Retry"];
     [backButton.title setFontName:@"Copperplate"];
     [backButton.title setFontSize:20.0];
@@ -59,7 +59,7 @@
 
 - (void)addMenuButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
-    [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
+    [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Menu"];
     [backButton.title setFontName:@"Copperplate"];
     [backButton.title setFontSize:20.0];

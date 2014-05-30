@@ -35,7 +35,7 @@
 
 - (void)addStartButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
-    [backButton setPosition:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+    [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Start"];
     [backButton.title setFontName:@"Copperplate"];
     [backButton.title setFontSize:20.0];
@@ -51,7 +51,7 @@
 
 - (void)addOptionButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
-    [backButton setPosition:CGPointMake(self.frame.size.width/2, self.frame.size.height/4)];
+    [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Options"];
     [backButton.title setFontName:@"Copperplate"];
     [backButton.title setFontSize:20.0];
