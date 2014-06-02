@@ -25,7 +25,6 @@
 		F30ED69919328ED80027483C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30ED69719328ED80027483C /* Main.storyboard */; };
 		F30ED69C19328ED80027483C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED69B19328ED80027483C /* ViewController.m */; };
 		F30ED69F19328ED80027483C /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED69E19328ED80027483C /* MyScene.m */; };
-		F30ED6A119328ED80027483C /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6A019328ED80027483C /* Spaceship.png */; };
 		F30ED6A319328ED80027483C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6A219328ED80027483C /* Images.xcassets */; };
 		F30ED6AA19328ED90027483C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED6A919328ED90027483C /* XCTest.framework */; };
 		F30ED6AB19328ED90027483C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30ED68319328ED80027483C /* Foundation.framework */; };
@@ -56,6 +55,7 @@
 		F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3213470193BEF2E008423ED /* OptionsViewController.m */; };
 		F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3213471193BEF2E008423ED /* OptionsViewController.xib */; };
 		F3213475193BF365008423ED /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3213474193BF365008423ED /* Settings.bundle */; };
+		F3710DEE193CBF8B002581F1 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3710DED193CB495002581F1 /* SoundPlayer.m */; };
 		F3B9ABAD19361B5200C1B843 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABAC19361B5200C1B843 /* Player.m */; };
 		F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABB019362BD000C1B843 /* Enemy.m */; };
 		F3BAE6E91935940100BF97E6 /* libFlurry_5.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6E81935940100BF97E6 /* libFlurry_5.0.0.a */; };
@@ -103,7 +103,6 @@
 		F30ED69B19328ED80027483C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F30ED69D19328ED80027483C /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		F30ED69E19328ED80027483C /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		F30ED6A019328ED80027483C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		F30ED6A219328ED80027483C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F30ED6A819328ED90027483C /* ShootyJumpyBoyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShootyJumpyBoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30ED6A919328ED90027483C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -142,6 +141,8 @@
 		F3213470193BEF2E008423ED /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
 		F3213471193BEF2E008423ED /* OptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsViewController.xib; sourceTree = "<group>"; };
 		F3213474193BF365008423ED /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F3710DEC193CB495002581F1 /* SoundPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
+		F3710DED193CB495002581F1 /* SoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		F3B9ABAB19361B5200C1B843 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F3B9ABAC19361B5200C1B843 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		F3B9ABAF19362BD000C1B843 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -263,7 +264,8 @@
 				F30ED69B19328ED80027483C /* ViewController.m */,
 				F30ED6E81933AB8F0027483C /* SKButton.h */,
 				F30ED6E91933AB8F0027483C /* SKButton.m */,
-				F30ED6A019328ED80027483C /* Spaceship.png */,
+				F3710DEC193CB495002581F1 /* SoundPlayer.h */,
+				F3710DED193CB495002581F1 /* SoundPlayer.m */,
 				F30ED6A219328ED80027483C /* Images.xcassets */,
 				F30ED68C19328ED80027483C /* Supporting Files */,
 			);
@@ -511,7 +513,6 @@
 				F3213475193BF365008423ED /* Settings.bundle in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6E21932F92A0027483C /* Met.png in Resources */,
-				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
 				F30ED69919328ED80027483C /* Main.storyboard in Resources */,
 				F30847781936BB5700848FAE /* explosion.wav in Resources */,
 				F30ED6EF1933AD7A0027483C /* ButtonSelected.png in Resources */,
@@ -547,6 +548,7 @@
 				F30ED6EA1933AB8F0027483C /* SKButton.m in Sources */,
 				F30ED6C11932901C0027483C /* Constants.m in Sources */,
 				F30ED6E71933AB100027483C /* StartScene.m in Sources */,
+				F3710DEE193CBF8B002581F1 /* SoundPlayer.m in Sources */,
 				F30ED69F19328ED80027483C /* MyScene.m in Sources */,
 				F3135F271938071F00443706 /* Platform.m in Sources */,
 				F30ED69C19328ED80027483C /* ViewController.m in Sources */,

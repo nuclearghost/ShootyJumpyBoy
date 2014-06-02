@@ -181,7 +181,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     SKAction *fire = [SKAction moveToX:self.frame.size.width + bullet.size.width duration:2];
     SKAction *remove = [SKAction removeFromParent];
-    SKAction *laserSound = [SKAction playSoundFileNamed:@"laser.wav" waitForCompletion:NO];
+    SKAction *laserSound = [[SoundPlayer sharedInstance] playSound:@"laser.wav"];
     
     [bullet runAction:[SKAction sequence:@[laserSound, fire, remove]]];
     
@@ -222,8 +222,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 - (void)playMusic {
-    SKAction *playSong = [SKAction playSoundFileNamed:@"My Song.m4a" waitForCompletion:YES];
-    [self runAction:[SKAction repeatActionForever:playSong] withKey:@"BGMusic"];
+    SKAction *playSong = [[SoundPlayer sharedInstance] playMusic:@"My Song.m4a"];
+    [self runAction:playSong withKey:@"BGMusic"];
 }
 
 - (void)createPauseButton {
@@ -294,7 +294,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             
             SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
             SKAction *remove = [SKAction removeFromParent];
-            SKAction *explosionSound = [SKAction playSoundFileNamed:@"explosion.wav" waitForCompletion:NO];
+            SKAction *explosionSound = [[SoundPlayer sharedInstance] playSound:@"explosion.wav"];
             [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
             
             self.score += 10;
@@ -317,7 +317,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             
             SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
             SKAction *remove = [SKAction removeFromParent];
-            SKAction *explosionSound = [SKAction playSoundFileNamed:@"explosion2.wav" waitForCompletion:NO];
+            SKAction *explosionSound = [[SoundPlayer sharedInstance] playSound:@"explosion2.wav"];
             [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction,remove]] completion:^(){ [self gameOver]; }];
             
             

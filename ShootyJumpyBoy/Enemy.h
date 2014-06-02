@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 #import "Constants.h"
+#import "SoundPlayer.h"
 
 @interface Enemy : SKSpriteNode
 

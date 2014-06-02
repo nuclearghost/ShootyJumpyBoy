@@ -42,7 +42,8 @@
     if (self.health <= 0){
         return YES;
     } else {
-        [self runAction:[SKAction playSoundFileNamed:@"hit.wav" waitForCompletion:NO]];
+        SKAction *sound = [[SoundPlayer sharedInstance] playSound:@"hit.wav"];
+        [self runAction:sound];
         return NO;
     }
 }
