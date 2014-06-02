@@ -25,6 +25,7 @@
 
 @property (nonatomic) BOOL scenePaused;
 @property (nonatomic) BOOL gameOverPending;
+@property (nonatomic) BOOL jumpLeft;
 
 @end
 
@@ -75,6 +76,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         
         self.scenePaused = NO;
         self.gameOverPending = NO;
+        self.jumpLeft = [[NSUserDefaults standardUserDefaults] integerForKey:@"controls"] == 0;
     }
     return self;
 }
@@ -84,9 +86,17 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         if (location.x <= self.size.width/2) {
-            [self.player runAction:self.player.jumpAction];
+            if (self.jumpLeft) {
+                [self.player runAction:self.player.jumpAction];
+            } else {
+                [self shootFromNode:self.player];
+            }
         } else {
-            [self shootFromNode:self.player];
+            if (self.jumpLeft) {
+                [self shootFromNode:self.player];
+            } else {
+                [self.player runAction:self.player.jumpAction];
+            }
         }
         
     }
