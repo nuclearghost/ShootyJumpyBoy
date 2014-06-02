@@ -97,8 +97,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             } else {
                 [self.player runAction:self.player.jumpAction];
             }
-        }
-        
+        }        
     }
     
 }
