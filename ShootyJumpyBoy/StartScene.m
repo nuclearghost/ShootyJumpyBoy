@@ -18,11 +18,10 @@
 	self = [super initWithSize:size];
 	if (self)
 	{
-		/* Setup your scene here */
 		self.backgroundColor = [SKColor colorWithRed:0.21 green:0.63 blue:0.59 alpha:1.0];
 		
 		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
-		myLabel.text = @"Shooty Jumpy Guy";
+		myLabel.text = @"Shooty Jumpy Boy";
 		myLabel.fontSize = 50;
 		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 3*self.frame.size.height/4);
 		[self addChild:myLabel];
@@ -61,9 +60,7 @@
 
 - (void)transitionOptions:(NSNotification *)notification {
     NSLog(@"Transition to options");
-    SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
-    MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];    //  Optionally, insert code to configure the new scene.
-    [self.scene.view presentScene: myScene transition: reveal];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showOptions" object:nil];
 }
 
 @end

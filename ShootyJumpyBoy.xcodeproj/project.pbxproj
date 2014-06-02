@@ -53,6 +53,9 @@
 		F30ED6FE193425A40027483C /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FC193425A40027483C /* Pause.png */; };
 		F30ED6FF193425A40027483C /* PauseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F30ED6FD193425A40027483C /* PauseSelected.png */; };
 		F3135F271938071F00443706 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = F3135F261938071F00443706 /* Platform.m */; };
+		F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3213470193BEF2E008423ED /* OptionsViewController.m */; };
+		F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3213471193BEF2E008423ED /* OptionsViewController.xib */; };
+		F3213475193BF365008423ED /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3213474193BF365008423ED /* Settings.bundle */; };
 		F3B9ABAD19361B5200C1B843 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABAC19361B5200C1B843 /* Player.m */; };
 		F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABB019362BD000C1B843 /* Enemy.m */; };
 		F3BAE6E91935940100BF97E6 /* libFlurry_5.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6E81935940100BF97E6 /* libFlurry_5.0.0.a */; };
@@ -135,6 +138,10 @@
 		F30ED6FD193425A40027483C /* PauseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseSelected.png; sourceTree = "<group>"; };
 		F3135F251938071F00443706 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		F3135F261938071F00443706 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
+		F321346F193BEF2E008423ED /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
+		F3213470193BEF2E008423ED /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
+		F3213471193BEF2E008423ED /* OptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsViewController.xib; sourceTree = "<group>"; };
+		F3213474193BF365008423ED /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F3B9ABAB19361B5200C1B843 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F3B9ABAC19361B5200C1B843 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		F3B9ABAF19362BD000C1B843 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -272,6 +279,7 @@
 				F30ED68E19328ED80027483C /* InfoPlist.strings */,
 				F30ED69119328ED80027483C /* main.m */,
 				F30ED69319328ED80027483C /* ShootyJumpyBoy-Prefix.pch */,
+				F3213474193BF365008423ED /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -358,6 +366,9 @@
 				F30ED6E61933AB100027483C /* StartScene.m */,
 				F30ED6F01934009B0027483C /* GameOverScene.h */,
 				F30ED6F11934009B0027483C /* GameOverScene.m */,
+				F321346F193BEF2E008423ED /* OptionsViewController.h */,
+				F3213470193BEF2E008423ED /* OptionsViewController.m */,
+				F3213471193BEF2E008423ED /* OptionsViewController.xib */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -495,7 +506,9 @@
 				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
 				F308477E1936BB5700848FAE /* powerup.wav in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
+				F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */,
 				F30ED6EE1933AD7A0027483C /* ButtonNormal.png in Resources */,
+				F3213475193BF365008423ED /* Settings.bundle in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6E21932F92A0027483C /* Met.png in Resources */,
 				F30ED6A119328ED80027483C /* Spaceship.png in Resources */,
@@ -540,6 +553,7 @@
 				F30ED69619328ED80027483C /* AppDelegate.m in Sources */,
 				F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */,
 				F30ED6F21934009B0027483C /* GameOverScene.m in Sources */,
+				F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */,
 				F3B9ABAD19361B5200C1B843 /* Player.m in Sources */,
 				F30ED69219328ED80027483C /* main.m in Sources */,
 			);

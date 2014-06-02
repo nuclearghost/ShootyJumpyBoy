@@ -19,6 +19,15 @@
     [Flurry startSession:@"SX36VDWCTTQJKWQ8547P"];
     [FlurryAds initialize:self.window.rootViewController];
     [FlurryAds enableTestAds:YES];
+    
+    NSMutableDictionary *defaults = [[NSMutableDictionary alloc] initWithCapacity:4];
+    [defaults setObject:[NSDate date] forKey:@"Launch"];
+    [defaults setObject:[NSNumber numberWithInt:0] forKey:@"high_score"];
+    [defaults setValue:[NSNumber numberWithBool:YES] forKey:@"sound_effects"];
+    [defaults setValue:[NSNumber numberWithBool:YES] forKey:@"music"];
+    [defaults setValue:[NSNumber numberWithInt:0] forKey:@"controls"];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     return YES;
 }
 							

@@ -7,9 +7,11 @@
 // Using notification center from http://stackoverflow.com/questions/21664295/hide-show-iads-in-spritekit
 
 #import "ViewController.h"
-#import "StartScene.h"
 
 #import "FlurryAds.h"
+
+#import "StartScene.h"
+#import "OptionsViewController.h"
 
 @implementation ViewController
 
@@ -19,6 +21,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"hideAd" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"showAd" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showOptions:) name:@"showOptions" object:nil];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
@@ -52,6 +55,13 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)showOptions:(NSNotification *)notification {
+    OptionsViewController *ovc = [[OptionsViewController alloc] init];
+    [self presentViewController:ovc animated:YES completion:^{
+        NSLog(@"Options Presented");
+    }];
 }
 
 - (void)handleNotification:(NSNotification *)notification
