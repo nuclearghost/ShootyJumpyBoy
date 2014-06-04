@@ -10,9 +10,13 @@
 
 @implementation Platform
 
-- (id)initAtPoint: (CGPoint)point {
+- (id)initAtPoint: (CGPoint)point withRotation:(BOOL)rotate {
     self = [Platform spriteNodeWithImageNamed:@"Floor"];
     [self setScale:0.1];
+    
+    if (rotate) {
+        self.zRotation = M_PI_2;
+    }
     
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = kWallCategory;

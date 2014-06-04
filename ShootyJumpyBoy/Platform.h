@@ -12,7 +12,7 @@
 
 @interface Platform : SKSpriteNode
 
-- (id)initAtPoint:(CGPoint)point;
+- (id)initAtPoint: (CGPoint)point withRotation:(BOOL)rotate;
 
 
 @end

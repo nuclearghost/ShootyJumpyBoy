@@ -201,7 +201,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     }
     
     if ([self getRandomNumberBetween:0 to:1] == 1) {
-        Platform *platform = [[Platform alloc] initAtPoint:CGPointMake(self.frame.size.width, 200)];
+        BOOL rotate = [self getRandomNumberBetween:0 to:1];
+        Platform *platform = [[Platform alloc] initAtPoint:CGPointMake(self.frame.size.width, rotate ? 100 : 200) withRotation:rotate];
         [self addChild:platform];
     }
 
