@@ -97,7 +97,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             } else {
                 [self.player runAction:self.player.jumpAction];
             }
-        }        
+        }
     }
     
 }
@@ -176,8 +176,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     bullet.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bullet.size.height/5];
     bullet.physicsBody.dynamic = NO;
     bullet.physicsBody.categoryBitMask = kPlayerProjectileCategory; //TODO
-    bullet.physicsBody.contactTestBitMask = kEnemyCategory;
-    bullet.physicsBody.collisionBitMask = 0;
+    bullet.physicsBody.contactTestBitMask = kEnemyCategory | kWallCategory;
+    bullet.physicsBody.collisionBitMask = kWallCategory;
     
     SKAction *fire = [SKAction moveToX:self.frame.size.width + bullet.size.width duration:2];
     SKAction *remove = [SKAction removeFromParent];
@@ -205,7 +205,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         Platform *platform = [[Platform alloc] initAtPoint:CGPointMake(self.frame.size.width, rotate ? 100 : 200) withRotation:rotate];
         [self addChild:platform];
     }
-
+    
 }
 
 -(int)getRandomNumberBetween:(int)from to:(int)to
@@ -250,9 +250,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (void)checkPlayerBounds {
     
     if (!self.gameOverPending && (self.player.position.x + self.player.size.width/2 < 0 ||
-        self.player.position.x - self.player.size.width/2 > self.size.width ||
-        self.player.position.y + self.player.size.height/2 < 0))// ||
-        //self.player.position.y - self.player.size.height/2 > self.size.height)
+                                  self.player.position.x - self.player.size.width/2 > self.size.width ||
+                                  self.player.position.y + self.player.size.height/2 < 0))
     {
         self.gameOverPending = YES;
         [self gameOver];
@@ -279,32 +278,35 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     if ((firstBody.categoryBitMask & kPlayerProjectileCategory) != 0)
     {
         SKNode *projectile = (contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ? contact.bodyA.node : contact.bodyB.node;
-        Enemy *enemy = (Enemy*)((contact.bodyA.categoryBitMask & kPlayerCategory) ?
-                                contact.bodyB.node : contact.bodyA.node);
         
-        if ([enemy decrementHealthBy:1]) {
-            [enemy runAction:[SKAction removeFromParent]];
+        if (secondBody.categoryBitMask & kEnemyCategory) {
+            Enemy *enemy = (Enemy*)((contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ?
+                                    contact.bodyB.node : contact.bodyA.node);
             
-            //add explosion
-            SKSpriteNode *explosion = [SKSpriteNode spriteNodeWithTexture:[self.explosionTextures objectAtIndex:0]];
-            explosion.zPosition = 1;
-            explosion.scale = 0.6;
-            explosion.position = contact.bodyA.node.position;
-            
-            [self addChild:explosion];
-            
-            SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
-            SKAction *remove = [SKAction removeFromParent];
-            SKAction *explosionSound = [[SoundPlayer sharedInstance] playSound:@"explosion.wav"];
-            [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
-            
-            self.score += 10;
+            if ([enemy decrementHealthBy:1]) {
+                [enemy runAction:[SKAction removeFromParent]];
+                
+                //add explosion
+                SKSpriteNode *explosion = [SKSpriteNode spriteNodeWithTexture:[self.explosionTextures objectAtIndex:0]];
+                explosion.zPosition = 1;
+                explosion.scale = 0.6;
+                explosion.position = contact.bodyA.node.position;
+                
+                [self addChild:explosion];
+                
+                SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
+                SKAction *remove = [SKAction removeFromParent];
+                SKAction *explosionSound = [[SoundPlayer sharedInstance] playSound:@"explosion.wav"];
+                [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
+                
+                self.score += 10;
+            }
         }
         [projectile runAction:[SKAction removeFromParent]];
     } else if ((firstBody.categoryBitMask & kPlayerCategory) != 0) {
         if (secondBody.categoryBitMask & (kEnemyCategory | kEnemyProjectileCategory |kHazardCategory)) {
             SKNode *player = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyA.node : contact.bodyB.node;
-            SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerProjectileCategory) ? contact.bodyB.node : contact.bodyA.node;
+            SKNode *enemy = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyB.node : contact.bodyA.node;
             [player runAction:[SKAction removeFromParent]];
             [enemy runAction:[SKAction removeFromParent]];
             
