@@ -21,7 +21,7 @@
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = kWallCategory;
     self.physicsBody.dynamic = NO;
-    //self.physicsBody.collisionBitMask = ;
+    //self.physicsBody.collisionBitMask ^= kPlayerProjectileCategory;
     self.position = point;
         
     SKAction *move = [SKAction moveToX:0 duration:2];
