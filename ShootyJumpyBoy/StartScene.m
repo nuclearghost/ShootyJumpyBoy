@@ -53,7 +53,7 @@
     [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Options"];
     [backButton.title setFontName:kCustomFont];
-    [backButton.title setFontSize:16.0];
+    [backButton.title setFontSize:14.0];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionOptions:)];
     [self addChild:backButton];
 }
