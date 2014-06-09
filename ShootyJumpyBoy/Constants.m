@@ -18,4 +18,5 @@ const uint32_t kWallCategory = 0x1 << 4;
 const uint32_t kHazardCategory = 0x1 << 5;
 
 const float BG_VELOCITY = 100.0;
+const float kXDeletePoint = -100;
 @end

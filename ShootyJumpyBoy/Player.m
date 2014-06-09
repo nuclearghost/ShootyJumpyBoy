@@ -23,11 +23,11 @@
 -(id)init {
     self = [Player spriteNodeWithImageNamed:@"Shoot"];
     self.name = @"player";
-    [self setScale:0.2];
+    [self setScale:0.18];
     
     self.doubleJump = YES;
     
-    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize: CGSizeMake(self.size.width * .8, self.size.height * .8) center:CGPointMake(0, 5)];
     self.physicsBody.categoryBitMask = kPlayerCategory;
     self.physicsBody.restitution = 0;
     self.physicsBody.contactTestBitMask = kEnemyCategory | kEnemyProjectileCategory | kWallCategory;

@@ -30,7 +30,7 @@
     
     self.health = 2;
     
-    SKAction *moveEnemy = [SKAction moveToX:0 duration:2];
+    SKAction *moveEnemy = [SKAction moveToX:kXDeletePoint duration:2];
     
     [self runAction:[SKAction sequence:@[moveEnemy, [SKAction removeFromParent]]]];
     

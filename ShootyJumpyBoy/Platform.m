@@ -11,8 +11,8 @@
 @implementation Platform
 
 - (id)initAtPoint: (CGPoint)point withRotation:(BOOL)rotate {
-    self = [Platform spriteNodeWithImageNamed:@"Floor"];
-    [self setScale:0.1];
+    self = [Platform spriteNodeWithImageNamed:@"Platform"];
+    [self setScale:0.2];
     
     if (rotate) {
         self.zRotation = M_PI_2;
@@ -24,7 +24,7 @@
     //self.physicsBody.collisionBitMask ^= kPlayerProjectileCategory;
     self.position = point;
         
-    SKAction *move = [SKAction moveToX:0 duration:2];
+    SKAction *move = [SKAction moveToX:kXDeletePoint duration:2];
     
     [self runAction:[SKAction sequence:@[move, [SKAction removeFromParent]]]];
 

@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const uint32_t kWallCategory;
 FOUNDATION_EXPORT const uint32_t kHazardCategory;
 
 FOUNDATION_EXPORT const float BG_VELOCITY;
+FOUNDATION_EXPORT const float kXDeletePoint;
 /*
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
 {
