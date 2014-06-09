@@ -32,10 +32,13 @@
         [self addRetryButton];
         [self addMenuButton];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"showAd" object:nil];
-        
 	}
 	return self;
+}
+
+-(void)didMoveToView:(SKView *)view
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showAd" object:nil];
 }
 
 - (void)addRetryButton {
