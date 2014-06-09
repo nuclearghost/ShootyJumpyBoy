@@ -19,15 +19,28 @@
 		
 		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		myLabel.text = @"Game Over";
-		myLabel.fontSize = 60;
+		myLabel.fontSize = 40;
 		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 3*self.frame.size.height/4);
 		[self addChild:myLabel];
         
         SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)score];
-		scoreLabel.fontSize = 40;
-		scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2);
+		scoreLabel.fontSize = 30;
+		scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2 + 20);
 		[self addChild:scoreLabel];
+        
+        double highScore = [[NSUserDefaults standardUserDefaults] doubleForKey:@"high_score"];
+        if (score > highScore) {
+            highScore = score;
+            [[NSUserDefaults standardUserDefaults] setDouble:highScore forKey:@"high_score"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+
+        SKLabelNode* highScoreLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
+		highScoreLabel.text = [NSString stringWithFormat:@"High Score: %.0f", highScore];
+		highScoreLabel.fontSize = 30;
+		highScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2 - 20);
+		[self addChild:highScoreLabel];
         
         [self addRetryButton];
         [self addMenuButton];
