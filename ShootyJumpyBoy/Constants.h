@@ -16,6 +16,7 @@ FOUNDATION_EXPORT const uint32_t kEnemyCategory;
 FOUNDATION_EXPORT const uint32_t kEnemyProjectileCategory;
 FOUNDATION_EXPORT const uint32_t kWallCategory;
 FOUNDATION_EXPORT const uint32_t kHazardCategory;
+FOUNDATION_EXPORT NSString * const kCustomFont;
 
 FOUNDATION_EXPORT const float BG_VELOCITY;
 FOUNDATION_EXPORT const float kXDeletePoint;

@@ -17,13 +17,13 @@
 	{
 		self.backgroundColor = [SKColor colorWithRed:0.21 green:0.63 blue:0.59 alpha:1.0];
 		
-		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
+		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		myLabel.text = @"Game Over";
 		myLabel.fontSize = 60;
 		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 3*self.frame.size.height/4);
 		[self addChild:myLabel];
         
-        SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
+        SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)score];
 		scoreLabel.fontSize = 40;
 		scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2);
@@ -42,8 +42,8 @@
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Retry"];
-    [backButton.title setFontName:@"Copperplate"];
-    [backButton.title setFontSize:20.0];
+    [backButton.title setFontName:kCustomFont];
+    [backButton.title setFontSize:16];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionStart:)];
     [self addChild:backButton];
 }
@@ -61,8 +61,8 @@
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Menu"];
-    [backButton.title setFontName:@"Copperplate"];
-    [backButton.title setFontSize:20.0];
+    [backButton.title setFontName:kCustomFont];
+    [backButton.title setFontSize:16];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionMenu:)];
     [self addChild:backButton];
 }

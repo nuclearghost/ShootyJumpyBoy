@@ -217,10 +217,10 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 - (void)createScore {
     self.score = 0;
-    self.scoreDisplay = [[SKLabelNode alloc] initWithFontNamed:@"Copperplate"];
+    self.scoreDisplay = [[SKLabelNode alloc] initWithFontNamed:kCustomFont];
     self.scoreDisplay.text = [NSString stringWithFormat:@"%ld", (long)self.score];
-    self.scoreDisplay.fontSize = 30;
-    self.scoreDisplay.position = CGPointMake(self.frame.size.width, self.frame.size.height - 30);
+    self.scoreDisplay.fontSize = 20;
+    self.scoreDisplay.position = CGPointMake(self.frame.size.width - 30, self.frame.size.height - 30);
     [self addChild:self.scoreDisplay];
 }
 

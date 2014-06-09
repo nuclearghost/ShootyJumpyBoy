@@ -20,9 +20,9 @@
 	{
 		self.backgroundColor = [SKColor colorWithRed:0.21 green:0.63 blue:0.59 alpha:1.0];
 		
-		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:@"Copperplate"];
+		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		myLabel.text = @"Shooty Jumpy Boy";
-		myLabel.fontSize = 50;
+		myLabel.fontSize = 30;
 		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 3*self.frame.size.height/4);
 		[self addChild:myLabel];
         
@@ -36,8 +36,8 @@
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Start"];
-    [backButton.title setFontName:@"Copperplate"];
-    [backButton.title setFontSize:20.0];
+    [backButton.title setFontName:kCustomFont];
+    [backButton.title setFontSize:16.0];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionStart:)];
     [self addChild:backButton];
 }
@@ -52,8 +52,8 @@
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
     [backButton.title setText:@"Options"];
-    [backButton.title setFontName:@"Copperplate"];
-    [backButton.title setFontSize:20.0];
+    [backButton.title setFontName:kCustomFont];
+    [backButton.title setFontSize:16.0];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionOptions:)];
     [self addChild:backButton];
 }
