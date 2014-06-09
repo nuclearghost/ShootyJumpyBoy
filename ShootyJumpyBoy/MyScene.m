@@ -145,6 +145,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         bg.position = CGPointMake(i * bg.size.width, 0);
         bg.anchorPoint = CGPointZero;
         bg.name = @"bg";
+        bg.zPosition = -2;
         [self addChild:bg];
     }
 }

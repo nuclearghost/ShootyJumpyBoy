@@ -11,13 +11,14 @@
 @implementation Platform
 
 - (id)initAtPoint: (CGPoint)point withRotation:(BOOL)rotate {
-    self = [Platform spriteNodeWithImageNamed:@"Platform"];
-    [self setScale:0.2];
-    
     if (rotate) {
-        self.zRotation = M_PI_2;
+        self = [Platform spriteNodeWithImageNamed:@"Wall"];
+    } else {
+        self = [Platform spriteNodeWithImageNamed:@"Platform"];
     }
-    
+    [self setScale:0.2];
+    [self setZPosition:-1];
+
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = kWallCategory;
     self.physicsBody.dynamic = NO;
