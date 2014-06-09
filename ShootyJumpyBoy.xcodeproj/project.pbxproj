@@ -70,6 +70,7 @@
 		F3CF5B4F194542870046D450 /* Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4E194542870046D450 /* Wall.png */; };
 		F3CF5B51194544C00046D450 /* 8-BIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B50194544C00046D450 /* 8-BIT.TTF */; };
 		F3CF5B5319454C9C0046D450 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B5219454C9C0046D450 /* Settings.bundle */; };
+		F3CF5B55194576C60046D450 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B54194576C60046D450 /* Background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		F3CF5B4E194542870046D450 /* Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wall.png; sourceTree = "<group>"; };
 		F3CF5B50194544C00046D450 /* 8-BIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8-BIT.TTF"; sourceTree = "<group>"; };
 		F3CF5B5219454C9C0046D450 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F3CF5B54194576C60046D450 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 		F30ED6CF19329D7A0027483C /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				F3CF5B54194576C60046D450 /* Background.png */,
 				F3CF5B4E194542870046D450 /* Wall.png */,
 				F3CF5B4C194517C50046D450 /* Platform.png */,
 				F3CF5B4A194515160046D450 /* Block.png */,
@@ -523,6 +526,7 @@
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
 				F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */,
 				F30ED6EE1933AD7A0027483C /* ButtonNormal.png in Resources */,
+				F3CF5B55194576C60046D450 /* Background.png in Resources */,
 				F3CF5B4B194515160046D450 /* Block.png in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6E21932F92A0027483C /* Met.png in Resources */,

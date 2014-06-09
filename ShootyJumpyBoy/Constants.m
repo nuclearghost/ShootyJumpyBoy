@@ -19,6 +19,6 @@ const uint32_t kHazardCategory = 0x1 << 5;
 
 NSString* const kCustomFont = @"8BITWONDERNominal";
 
-const float BG_VELOCITY = 100.0;
+const float BG_VELOCITY = 80.0;
 const float kXDeletePoint = -100;
 @end

@@ -141,7 +141,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 -(void)initalizingScrollingBackground
 {
     for (int i = 0; i < 2; i++) {
-        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"bg"];
+        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"Background"];
         bg.position = CGPointMake(i * bg.size.width, 0);
         bg.anchorPoint = CGPointZero;
         bg.name = @"bg";
