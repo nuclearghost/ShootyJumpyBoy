@@ -71,6 +71,7 @@
 		F3CF5B51194544C00046D450 /* 8-BIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B50194544C00046D450 /* 8-BIT.TTF */; };
 		F3CF5B5319454C9C0046D450 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B5219454C9C0046D450 /* Settings.bundle */; };
 		F3CF5B55194576C60046D450 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B54194576C60046D450 /* Background.png */; };
+		F3CF5B59194588830046D450 /* Flame.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B58194588830046D450 /* Flame.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		F3CF5B50194544C00046D450 /* 8-BIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8-BIT.TTF"; sourceTree = "<group>"; };
 		F3CF5B5219454C9C0046D450 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F3CF5B54194576C60046D450 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		F3CF5B58194588830046D450 /* Flame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Flame.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 				F30ED6E01932F90F0027483C /* Enemies */,
 				F30ED6CF19329D7A0027483C /* Environment */,
 				F30ED6CC193296260027483C /* Player */,
+				F3CF5B58194588830046D450 /* Flame.sks */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				F308477C1936BB5700848FAE /* laser.wav in Resources */,
 				F30ED6FB193416990027483C /* My Song.m4a in Resources */,
 				F30ED6DF1932F4DB0027483C /* Floor.png in Resources */,
+				F3CF5B59194588830046D450 /* Flame.sks in Resources */,
 				F30ED6D51932A0E00027483C /* Jump.png in Resources */,
 				F3CF5B51194544C00046D450 /* 8-BIT.TTF in Resources */,
 			);
