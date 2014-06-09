@@ -5,12 +5,18 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>Type</key>
-			<string>High Score</string>
 			<key>Title</key>
-			<string>0</string>
+			<string>Developer</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Mark Meyer</string>
 			<key>Key</key>
-			<string>high_score</string>
+			<string></string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

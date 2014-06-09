@@ -301,7 +301,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 SKAction *explosionSound = [[SoundPlayer sharedInstance] playSound:@"explosion.wav"];
                 [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
                 
-                self.score += 10;
+                self.score += 100;
             }
         }
         [projectile runAction:[SKAction removeFromParent]];

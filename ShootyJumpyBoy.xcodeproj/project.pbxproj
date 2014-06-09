@@ -54,7 +54,6 @@
 		F3135F271938071F00443706 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = F3135F261938071F00443706 /* Platform.m */; };
 		F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3213470193BEF2E008423ED /* OptionsViewController.m */; };
 		F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3213471193BEF2E008423ED /* OptionsViewController.xib */; };
-		F3213475193BF365008423ED /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3213474193BF365008423ED /* Settings.bundle */; };
 		F3710DEE193CBF8B002581F1 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3710DED193CB495002581F1 /* SoundPlayer.m */; };
 		F3B9ABAD19361B5200C1B843 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABAC19361B5200C1B843 /* Player.m */; };
 		F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABB019362BD000C1B843 /* Enemy.m */; };
@@ -70,6 +69,7 @@
 		F3CF5B4D194517C50046D450 /* Platform.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4C194517C50046D450 /* Platform.png */; };
 		F3CF5B4F194542870046D450 /* Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4E194542870046D450 /* Wall.png */; };
 		F3CF5B51194544C00046D450 /* 8-BIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B50194544C00046D450 /* 8-BIT.TTF */; };
+		F3CF5B5319454C9C0046D450 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B5219454C9C0046D450 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +144,6 @@
 		F321346F193BEF2E008423ED /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		F3213470193BEF2E008423ED /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
 		F3213471193BEF2E008423ED /* OptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsViewController.xib; sourceTree = "<group>"; };
-		F3213474193BF365008423ED /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F3710DEC193CB495002581F1 /* SoundPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		F3710DED193CB495002581F1 /* SoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		F3B9ABAB19361B5200C1B843 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		F3CF5B4C194517C50046D450 /* Platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Platform.png; sourceTree = "<group>"; };
 		F3CF5B4E194542870046D450 /* Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wall.png; sourceTree = "<group>"; };
 		F3CF5B50194544C00046D450 /* 8-BIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8-BIT.TTF"; sourceTree = "<group>"; };
+		F3CF5B5219454C9C0046D450 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,7 +290,7 @@
 				F30ED68E19328ED80027483C /* InfoPlist.strings */,
 				F30ED69119328ED80027483C /* main.m */,
 				F30ED69319328ED80027483C /* ShootyJumpyBoy-Prefix.pch */,
-				F3213474193BF365008423ED /* Settings.bundle */,
+				F3CF5B5219454C9C0046D450 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -519,10 +519,10 @@
 				F308477D1936BB5700848FAE /* pickup.wav in Resources */,
 				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
 				F308477E1936BB5700848FAE /* powerup.wav in Resources */,
+				F3CF5B5319454C9C0046D450 /* Settings.bundle in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
 				F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */,
 				F30ED6EE1933AD7A0027483C /* ButtonNormal.png in Resources */,
-				F3213475193BF365008423ED /* Settings.bundle in Resources */,
 				F3CF5B4B194515160046D450 /* Block.png in Resources */,
 				F30ED6A319328ED80027483C /* Images.xcassets in Resources */,
 				F30ED6E21932F92A0027483C /* Met.png in Resources */,
