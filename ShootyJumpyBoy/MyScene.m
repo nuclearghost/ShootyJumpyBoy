@@ -30,17 +30,39 @@
 @end
 
 @implementation MyScene
-
+/**
+ *  Convenience method for quickly making a point out of two
+ *
+ *  @param a point
+ *  @param b point
+ *
+ *  @return new point that is sum of input points
+ */
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
 {
     return CGPointMake(a.x + b.x, a.y + b.y);
 }
 
+/**
+ *  Convenience method for scaling a point
+ *
+ *  @param a point
+ *  @param b scalar
+ *
+ *  @return scaled point
+ */
 static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 {
     return CGPointMake(a.x * b, a.y * b);
 }
 
+/**
+ *  Init method for scene
+ *
+ *  @param size size of frame
+ *
+ *  @return SKScene
+ */
 -(id)initWithSize:(CGSize)size {
     
     NSLog(@"CGSize: %@", NSStringFromCGSize(size));
@@ -150,6 +172,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     }
 }
 
+/**
+ *  Automatically updates the background and moves piece to end of queue if necessary
+ */
 - (void)moveBg
 {
     [self enumerateChildNodesWithName:@"bg" usingBlock: ^(SKNode *node, BOOL *stop)
@@ -168,6 +193,11 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
      }];
 }
 
+/**
+ *  Fires a projectile form input node
+ *
+ *  @param node source of projectile
+ */
 - (void)shootFromNode:(SKSpriteNode*)node {
     CGPoint location = [node position];
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithImageNamed:@"spark"];
@@ -195,6 +225,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self addChild:bullet];
 }
 
+/**
+ *  Creates enemies and platforms randomly
+ */
 - (void)generateEnemies
 {
     if ([self getRandomNumberBetween:0 to:1] == 1) {
@@ -210,6 +243,14 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
 }
 
+/**
+ *  Convenience method to generate random number modulus bounds
+ *
+ *  @param from lower bound
+ *  @param to   upper bound
+ *
+ *  @return random number modulus bounds
+ */
 -(int)getRandomNumberBetween:(int)from to:(int)to
 {
     return (int)(from + arc4random() % (to-from+1));
@@ -224,6 +265,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self addChild:self.scoreDisplay];
 }
 
+/**
+ *  Initalizes music
+ */
 - (void)playMusic {
     SKAction *playSong = [[SoundPlayer sharedInstance] playMusic:@"My Song.m4a"];
     [self runAction:playSong withKey:@"BGMusic"];
@@ -236,11 +280,17 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self addChild:pauseButton];
 }
 
+/**
+ *  Toggles the scene's pause and unpause
+ */
 - (void) togglePause {
     self.scenePaused = !self.scenePaused;
     self.scene.view.paused = self.scenePaused;
 }
 
+/**
+ *  Transition to GameOverScene
+ */
 - (void)gameOver {
     NSLog(@"Game Over");
     [self removeActionForKey:@"BGMusic"];
@@ -249,6 +299,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     [self.scene.view presentScene: goScene transition: reveal];
 }
 
+/**
+ *  Determine if player has left screen and should be game over
+ */
 - (void)checkPlayerBounds {
     
     if (!self.gameOverPending && (self.player.position.x + self.player.size.width/2 < 0 ||

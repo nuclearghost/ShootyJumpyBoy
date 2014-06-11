@@ -23,17 +23,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"showAd" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showOptions:) name:@"showOptions" object:nil];
 
-    // Configure the view.
     SKView * skView = (SKView *)self.view;
     //skView.showsFPS = YES;
     //skView.showsNodeCount = YES;
     //skView.showsPhysics = YES;
     
-    // Create and configure the scene.
     SKScene * scene = [StartScene sceneWithSize:CGSizeMake(skView.bounds.size.height, skView.bounds.size.width)];
     scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
     [skView presentScene:scene];
 }
 
@@ -51,12 +47,11 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
+/**
+ *  Display the options view controller
+ *
+ *  @param notification unused
+ */
 - (void)showOptions:(NSNotification *)notification {
     OptionsViewController *ovc = [[OptionsViewController alloc] init];
     [self presentViewController:ovc animated:YES completion:^{
@@ -64,12 +59,17 @@
     }];
 }
 
+/**
+ *  Used to hide or show an ad
+ *
+ *  @param notification determine to show or hide ad
+ */
 - (void)handleNotification:(NSNotification *)notification
 {
     if ([notification.name isEqualToString:@"hideAd"]) {
-        [FlurryAds removeAdFromSpace:@"BANNER_MAIN_VIEW"];
+        [FlurryAds removeAdFromSpace:@"SJB Game Over"];
     } else if ([notification.name isEqualToString:@"showAd"]) {
-        [FlurryAds fetchAndDisplayAdForSpace:@"BANNER_MAIN_VIEW" view:self.view size:BANNER_TOP];
+        [FlurryAds fetchAndDisplayAdForSpace:@"SJB Game Over" view:self.view size:BANNER_TOP];
     }
 }
 

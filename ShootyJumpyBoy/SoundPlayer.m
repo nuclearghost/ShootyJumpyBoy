@@ -87,6 +87,14 @@ static bool isFirstAccess = YES;
     return self;
 }
 
+/**
+ *  KVO to observe when NSUserDefaults changes
+ *
+ *  @param keyPath
+ *  @param object
+ *  @param change
+ *  @param context
+ */
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
@@ -99,6 +107,13 @@ static bool isFirstAccess = YES;
     }
 }
 
+/**
+ *  Play a sound if option enabled
+ *
+ *  @param fileName file to play
+ *
+ *  @return SKAction* which should then be performed
+ */
 - (SKAction*)playSound:(NSString*)fileName {
     if (self.soundEffectsEnabled) {
         return [SKAction playSoundFileNamed:fileName waitForCompletion:NO];
@@ -106,6 +121,13 @@ static bool isFirstAccess = YES;
     return [SKAction waitForDuration:0];
 }
 
+/**
+ *  Play background music if setting enabled
+ *
+ *  @param fileName file to play
+ *
+ *  @return SKAction* which should then be performed
+ */
 - (SKAction*)playMusic:(NSString*)fileName {
     if (self.musicEnabled) {
         SKAction *playSong = [SKAction playSoundFileNamed:fileName waitForCompletion:YES];

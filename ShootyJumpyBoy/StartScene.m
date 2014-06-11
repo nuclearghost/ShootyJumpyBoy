@@ -37,6 +37,9 @@
 	return self;
 }
 
+/**
+ *  Create start button
+ */
 - (void)addStartButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
@@ -47,12 +50,20 @@
     [self addChild:backButton];
 }
 
+/**
+ *  Transition to myScene
+ *
+ *  @param notification unused
+ */
 - (void)transitionStart:(NSNotification *)notification {
     NSLog(@"Transition to start");
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1.0];
     MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];    //  Optionally, insert code to configure the new scene.
     [self.scene.view presentScene: myScene transition: reveal];}
 
+/**
+ *  Add options button
+ */
 - (void)addOptionButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
@@ -62,7 +73,11 @@
     [backButton setTouchUpInsideTarget:self action:@selector(transitionOptions:)];
     [self addChild:backButton];
 }
-
+/**
+ *  Post notification to display options screen
+ *
+ *  @param notification unused
+ */
 - (void)transitionOptions:(NSNotification *)notification {
     NSLog(@"Transition to options");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"showOptions" object:nil];

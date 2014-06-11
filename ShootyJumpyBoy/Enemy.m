@@ -15,7 +15,14 @@
 @end
 
 @implementation Enemy
-
+/**
+ *  Create Enemy Node
+ *
+ *  @param type  Variety of enemy to be created. Only one currently supported
+ *  @param point point to insert enemy sprite
+ *
+ *  @return SKSpriteNode enemy
+ */
 -(id)initEnemyOfType:(int32_t)type atPoint:(CGPoint)point {
     self = [Enemy spriteNodeWithImageNamed:@"Met"];
     self.name = @"enemyr";
@@ -36,7 +43,13 @@
     
     return self;
 }
-
+/**
+ *  Updates the enemies health
+ *
+ *  @param amount amount to decrement health
+ *
+ *  @return YES if health is <= 0 implying the enemy should be destroyed
+ */
 - (BOOL)decrementHealthBy:(NSUInteger)amount {
     self.health -= amount;
     if (self.health <= 0){

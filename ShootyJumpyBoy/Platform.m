@@ -9,7 +9,14 @@
 #import "Platform.h"
 
 @implementation Platform
-
+/**
+ *  Create a non interactive structure which the player can stand on or be moved by
+ *
+ *  @param point  location to initalize the structure
+ *  @param rotate if YES create a vertical piece if NO create a horizontal piece
+ *
+ *  @return SKSpriteNode
+ */
 - (id)initAtPoint: (CGPoint)point withRotation:(BOOL)rotate {
     if (rotate) {
         self = [Platform spriteNodeWithImageNamed:@"Wall"];

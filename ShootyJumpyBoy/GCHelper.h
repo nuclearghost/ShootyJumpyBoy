@@ -8,12 +8,12 @@
 
 #import <GameCenter/GameCenter.h>
 
+/**
+ *  Unused class for game center
+ */
 @interface GCHelper : NSObject
 
-/**
- * gets singleton object.
- * @return singleton
- */
+
 + (GCHelper*)sharedInstance;
 
 - (void) authenticateLocalPlayer;

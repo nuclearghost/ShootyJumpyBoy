@@ -19,7 +19,11 @@
 @end
 
 @implementation Player
-
+/**
+ *  Create a player object. Only one should be created at any time
+ *
+ *  @return SKSPriteNode player object
+ */
 -(id)init {
     self = [Player spriteNodeWithImageNamed:@"Shoot"];
     self.name = @"player";
@@ -53,7 +57,11 @@
     
     return self;
 }
-
+/**
+ *  Set when the player has made contact with a platform
+ *
+ *  @param contact YES if player is currently in contact with platform
+ */
 - (void)setGroundContact:(BOOL)contact {
     self.onGround = contact;
     if (contact) {
@@ -61,7 +69,9 @@
         self.doubleJumped = NO;
     }
 }
-
+/**
+ *  Apply impulse to player node to simulate jumping. Double jumping available
+ */
 - (void)jumpNode {
     if (self.onGround) {
         SKAction *sound = [[SoundPlayer sharedInstance] playSound:@"jump.wav"];

@@ -54,11 +54,15 @@
 	return self;
 }
 
+
 -(void)didMoveToView:(SKView *)view
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"showAd" object:nil];
 }
 
+/**
+ *  Adds retry button
+ */
 - (void)addRetryButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(3*self.frame.size.width/4, self.frame.size.height/4)];
@@ -69,6 +73,11 @@
     [self addChild:backButton];
 }
 
+/**
+ *  Transition to MyScene
+ *
+ *  @param notification unused
+ */
 - (void)transitionStart:(NSNotification *)notification {
     NSLog(@"Transition to start");
     
@@ -78,6 +87,9 @@
     MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];    //  Optionally, insert code to configure the new scene.
     [self.scene.view presentScene: myScene transition: reveal];}
 
+/**
+ *  Adds Menu Button
+ */
 - (void)addMenuButton {
     SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
     [backButton setPosition:CGPointMake(self.frame.size.width/4, self.frame.size.height/4)];
@@ -88,6 +100,11 @@
     [self addChild:backButton];
 }
 
+/**
+ *  Transition to StartScene
+ *
+ *  @param notification unused
+ */
 - (void)transitionMenu:(NSNotification *)notification {
     NSLog(@"Transition to options");
     

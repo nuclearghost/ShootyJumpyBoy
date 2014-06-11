@@ -37,30 +37,44 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+/**
+ *  Toggle sound effects on and off
+ *
+ *  @param sender UISwitch
+ */
 - (IBAction)soundEffectChanged:(id)sender {
     NSLog(@"sound effect changed");
     UISwitch *toggle = (UISwitch*)sender;
     [[NSUserDefaults standardUserDefaults] setBool:toggle.on forKey:@"sound_effects"];
 }
 
+/**
+ *  Toggle background music on and off
+ *
+ *  @param sender UISwitch
+ */
 - (IBAction)musicChanged:(id)sender {
     NSLog(@"music changed");
     UISwitch *toggle = (UISwitch*)sender;
     [[NSUserDefaults standardUserDefaults] setBool:toggle.on forKey:@"music"];
 }
 
+/**
+ *  Toggle Controls left or right
+ *
+ *  @param sender UISegmententedControl
+ */
 - (IBAction)controlsChanged:(id)sender {
     NSLog(@"controls changed");
     UISegmentedControl *seg = (UISegmentedControl*)sender;
     [[NSUserDefaults standardUserDefaults] setInteger:seg.selectedSegmentIndex forKey:@"controls"];
 }
 
+/**
+ *  Display a button with instructions based on controls
+ *
+ *  @param sender UIButton
+ */
 - (IBAction)instructionsTapped:(id)sender {
     NSLog(@"instructions tapped");
     UIButton *instructBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -73,11 +87,21 @@
     [self.view addSubview:instructBtn];
 }
 
+/**
+ *  Close options screen
+ *
+ *  @param sender UIButton
+ */
 - (IBAction)backTapped:(id)sender {
     NSLog(@"back tapped");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+/**
+ *  Helper method to close instructions image
+ *
+ *  @param sender UIButton
+ */
 - (IBAction)dismissInstructions:(id)sender {
     NSLog(@"close instructions");
     [sender removeFromSuperview];
