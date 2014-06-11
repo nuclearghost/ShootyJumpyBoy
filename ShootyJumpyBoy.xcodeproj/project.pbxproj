@@ -55,6 +55,7 @@
 		F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3213470193BEF2E008423ED /* OptionsViewController.m */; };
 		F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3213471193BEF2E008423ED /* OptionsViewController.xib */; };
 		F3710DEE193CBF8B002581F1 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3710DED193CB495002581F1 /* SoundPlayer.m */; };
+		F39CEE2B1947E76A006C7ED4 /* Menu Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE2A1947E76A006C7ED4 /* Menu Background.png */; };
 		F3B9ABAD19361B5200C1B843 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABAC19361B5200C1B843 /* Player.m */; };
 		F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABB019362BD000C1B843 /* Enemy.m */; };
 		F3BAE6E91935940100BF97E6 /* libFlurry_5.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6E81935940100BF97E6 /* libFlurry_5.0.0.a */; };
@@ -148,6 +149,7 @@
 		F3213471193BEF2E008423ED /* OptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsViewController.xib; sourceTree = "<group>"; };
 		F3710DEC193CB495002581F1 /* SoundPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		F3710DED193CB495002581F1 /* SoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
+		F39CEE2A1947E76A006C7ED4 /* Menu Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Background.png"; sourceTree = "<group>"; };
 		F3B9ABAB19361B5200C1B843 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F3B9ABAC19361B5200C1B843 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		F3B9ABAF19362BD000C1B843 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		F30ED6CB1932961D0027483C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F39CEE291947E75D006C7ED4 /* Menu */,
 				F308476F1936BB4200848FAE /* SoundEffects */,
 				F30ED6F9193416890027483C /* Music */,
 				F30ED6EB1933AD6C0027483C /* Buttons */,
@@ -399,6 +402,14 @@
 				F30ED6FA193416990027483C /* My Song.m4a */,
 			);
 			name = Music;
+			sourceTree = "<group>";
+		};
+		F39CEE291947E75D006C7ED4 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				F39CEE2A1947E76A006C7ED4 /* Menu Background.png */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		F3B9ABAE19361B5C00C1B843 /* Nodes */ = {
@@ -517,6 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F39CEE2B1947E76A006C7ED4 /* Menu Background.png in Resources */,
 				F308477A1936BB5700848FAE /* hit.wav in Resources */,
 				F308477B1936BB5700848FAE /* jump.wav in Resources */,
 				F30ED6DD1932EB960027483C /* spark.png in Resources */,

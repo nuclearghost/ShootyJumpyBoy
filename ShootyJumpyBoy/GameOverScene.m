@@ -16,6 +16,11 @@
 	if (self)
 	{
 		self.backgroundColor = [SKColor colorWithRed:0.21 green:0.63 blue:0.59 alpha:1.0];
+        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"Menu Background"];
+        bg.position = CGPointMake(0, 0);
+        [bg setScale:0.5];
+        bg.anchorPoint = CGPointZero;
+        [self addChild:bg];
 		
 		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		myLabel.text = @"Game Over";
@@ -69,7 +74,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"hideAd" object:nil];
     
-    SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
+    SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1.0];
     MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];    //  Optionally, insert code to configure the new scene.
     [self.scene.view presentScene: myScene transition: reveal];}
 

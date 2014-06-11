@@ -15,11 +15,13 @@
         self = [Platform spriteNodeWithImageNamed:@"Wall"];
     } else {
         self = [Platform spriteNodeWithImageNamed:@"Platform"];
+        /*
         NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Flame" ofType:
                                @"sks"];
         SKEmitterNode *projectileEmitter = [NSKeyedUnarchiver unarchiveObjectWithFile:smokePath];
         projectileEmitter.position = CGPointMake(0, self.size.height/2);
         [self addChild:projectileEmitter];
+         */
     }
     [self setScale:0.2];
     [self setZPosition:-1];

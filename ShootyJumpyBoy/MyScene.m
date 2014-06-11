@@ -244,7 +244,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 - (void)gameOver {
     NSLog(@"Game Over");
     [self removeActionForKey:@"BGMusic"];
-    SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
+    SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1.0];
     GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
     [self.scene.view presentScene: goScene transition: reveal];
 }
