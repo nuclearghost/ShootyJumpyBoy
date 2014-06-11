@@ -63,10 +63,23 @@
 
 - (IBAction)instructionsTapped:(id)sender {
     NSLog(@"instructions tapped");
+    UIButton *instructBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    if (self.controlsSegmentSwitch.selectedSegmentIndex == 0) {
+        [instructBtn setImage:[UIImage imageNamed:@"Left"] forState:UIControlStateNormal];
+    } else {
+        [instructBtn setImage:[UIImage imageNamed:@"Right"] forState:UIControlStateNormal];
+    }
+    [instructBtn addTarget:self action:@selector(dismissInstructions:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:instructBtn];
 }
 
 - (IBAction)backTapped:(id)sender {
     NSLog(@"back tapped");
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)dismissInstructions:(id)sender {
+    NSLog(@"close instructions");
+    [sender removeFromSuperview];
 }
 @end
