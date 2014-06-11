@@ -58,6 +58,7 @@
 		F39CEE2B1947E76A006C7ED4 /* Menu Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE2A1947E76A006C7ED4 /* Menu Background.png */; };
 		F39CEE331947F729006C7ED4 /* Left.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE311947F729006C7ED4 /* Left.png */; };
 		F39CEE341947F729006C7ED4 /* Right.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE321947F729006C7ED4 /* Right.png */; };
+		F39CEE36194800F6006C7ED4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE35194800F6006C7ED4 /* Settings.bundle */; };
 		F3B9ABAD19361B5200C1B843 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABAC19361B5200C1B843 /* Player.m */; };
 		F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9ABB019362BD000C1B843 /* Enemy.m */; };
 		F3BAE6E91935940100BF97E6 /* libFlurry_5.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6E81935940100BF97E6 /* libFlurry_5.0.0.a */; };
@@ -72,7 +73,6 @@
 		F3CF5B4D194517C50046D450 /* Platform.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4C194517C50046D450 /* Platform.png */; };
 		F3CF5B4F194542870046D450 /* Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4E194542870046D450 /* Wall.png */; };
 		F3CF5B51194544C00046D450 /* 8-BIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B50194544C00046D450 /* 8-BIT.TTF */; };
-		F3CF5B5319454C9C0046D450 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B5219454C9C0046D450 /* Settings.bundle */; };
 		F3CF5B55194576C60046D450 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B54194576C60046D450 /* Background.png */; };
 		F3CF5B59194588830046D450 /* Flame.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B58194588830046D450 /* Flame.sks */; };
 /* End PBXBuildFile section */
@@ -154,6 +154,7 @@
 		F39CEE2A1947E76A006C7ED4 /* Menu Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Background.png"; sourceTree = "<group>"; };
 		F39CEE311947F729006C7ED4 /* Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Left.png; sourceTree = "<group>"; };
 		F39CEE321947F729006C7ED4 /* Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Right.png; sourceTree = "<group>"; };
+		F39CEE35194800F6006C7ED4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 		F3B9ABAB19361B5200C1B843 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F3B9ABAC19361B5200C1B843 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		F3B9ABAF19362BD000C1B843 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -173,7 +174,6 @@
 		F3CF5B4C194517C50046D450 /* Platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Platform.png; sourceTree = "<group>"; };
 		F3CF5B4E194542870046D450 /* Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wall.png; sourceTree = "<group>"; };
 		F3CF5B50194544C00046D450 /* 8-BIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8-BIT.TTF"; sourceTree = "<group>"; };
-		F3CF5B5219454C9C0046D450 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F3CF5B54194576C60046D450 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		F3CF5B58194588830046D450 /* Flame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Flame.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,6 +293,7 @@
 		F30ED68C19328ED80027483C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F39CEE35194800F6006C7ED4 /* Settings.bundle */,
 				F3CF5B50194544C00046D450 /* 8-BIT.TTF */,
 				F3BAE6EA1935947000BF97E6 /* FlurryAds */,
 				F3BAE6E61935940100BF97E6 /* Flurry */,
@@ -300,7 +301,6 @@
 				F30ED68E19328ED80027483C /* InfoPlist.strings */,
 				F30ED69119328ED80027483C /* main.m */,
 				F30ED69319328ED80027483C /* ShootyJumpyBoy-Prefix.pch */,
-				F3CF5B5219454C9C0046D450 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -542,6 +542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F39CEE36194800F6006C7ED4 /* Settings.bundle in Resources */,
 				F39CEE2B1947E76A006C7ED4 /* Menu Background.png in Resources */,
 				F308477A1936BB5700848FAE /* hit.wav in Resources */,
 				F308477B1936BB5700848FAE /* jump.wav in Resources */,
@@ -551,7 +552,6 @@
 				F308477D1936BB5700848FAE /* pickup.wav in Resources */,
 				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
 				F308477E1936BB5700848FAE /* powerup.wav in Resources */,
-				F3CF5B5319454C9C0046D450 /* Settings.bundle in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
 				F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */,
 				F30ED6EE1933AD7A0027483C /* ButtonNormal.png in Resources */,
