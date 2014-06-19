@@ -84,6 +84,10 @@ static bool isFirstAccess = YES;
                                                options:NSKeyValueObservingOptionNew
                                                context:NULL];
     
+    [SoundManager sharedManager].allowsBackgroundMusic = YES;
+    [[SoundManager sharedManager]prepareToPlayWithSound:@"hit.wav"];
+
+    
     return self;
 }
 
@@ -114,11 +118,10 @@ static bool isFirstAccess = YES;
  *
  *  @return SKAction* which should then be performed
  */
-- (SKAction*)playSound:(NSString*)fileName {
+- (void)playSound:(NSString*)fileName {
     if (self.soundEffectsEnabled) {
-        return [SKAction playSoundFileNamed:fileName waitForCompletion:NO];
+        [[SoundManager sharedManager] playSound:fileName];
     }
-    return [SKAction waitForDuration:0];
 }
 
 /**
@@ -128,14 +131,18 @@ static bool isFirstAccess = YES;
  *
  *  @return SKAction* which should then be performed
  */
-- (SKAction*)playMusic:(NSString*)fileName {
+- (void)playMusic:(NSString*)fileName {
     if (self.musicEnabled) {
-        SKAction *playSong = [SKAction playSoundFileNamed:fileName waitForCompletion:YES];
-        return [SKAction repeatActionForever:playSong];
-    } else {
-        return [SKAction waitForDuration:0];
+        [[SoundManager sharedManager] playMusic:fileName looping:YES fadeIn:NO];
     }
-    
+}
+
+/**
+ *  Stop all currently playing sounds and music
+ */
+- (void)stopSoundsAndMusic {
+    [[SoundManager sharedManager] stopAllSounds];
+    [[SoundManager sharedManager] stopMusic];
 }
 
 @end

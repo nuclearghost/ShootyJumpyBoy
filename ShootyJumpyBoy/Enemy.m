@@ -55,8 +55,7 @@
     if (self.health <= 0){
         return YES;
     } else {
-        SKAction *sound = [[SoundPlayer sharedInstance] playSound:@"hit.wav"];
-        [self runAction:sound];
+        [[SoundPlayer sharedInstance] playSound:@"hit.wav"];
         return NO;
     }
 }

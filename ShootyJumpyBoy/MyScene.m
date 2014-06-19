@@ -215,9 +215,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     SKAction *fire = [SKAction moveToX:self.frame.size.width + bullet.size.width duration:2];
     SKAction *remove = [SKAction removeFromParent];
-    SKAction *laserSound = [[SoundPlayer sharedInstance] playSound:@"laser.wav"];
+    [[SoundPlayer sharedInstance] playSound:@"laser.wav"];
     
-    [bullet runAction:[SKAction sequence:@[laserSound, fire, remove]]];
+    [bullet runAction:[SKAction sequence:@[fire, remove]]];
     
     NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Projectile" ofType:
                            @"sks"];
@@ -279,8 +279,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
  *  Initalizes music
  */
 - (void)playMusic {
-    SKAction *playSong = [[SoundPlayer sharedInstance] playMusic:@"My Song.m4a"];
-    [self runAction:playSong withKey:@"BGMusic"];
+    [[SoundPlayer sharedInstance] playMusic:@"My Song.m4a"];
 }
 
 - (void)createPauseButton {
@@ -303,9 +302,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
  */
 - (void)gameOver {
     NSLog(@"Game Over");
-    [self removeActionForKey:@"BGMusic"];
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1.0];
     GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
+    [[SoundPlayer sharedInstance] stopSoundsAndMusic];
     [self.scene.view presentScene: goScene transition: reveal];
 }
 
@@ -361,8 +360,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 
                 SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
                 SKAction *remove = [SKAction removeFromParent];
-                SKAction *explosionSound = [[SoundPlayer sharedInstance] playSound:@"explosion.wav"];
-                [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
+                [[SoundPlayer sharedInstance] playSound:@"explosion.wav"];
+                [explosion runAction:[SKAction sequence:@[explosionAction, remove]]];
                 
                 self.score += 100;
             }
@@ -385,8 +384,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             
             SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
             SKAction *remove = [SKAction removeFromParent];
-            SKAction *explosionSound = [[SoundPlayer sharedInstance] playSound:@"explosion2.wav"];
-            [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction,remove]] completion:^(){ [self gameOver]; }];
+            [[SoundPlayer sharedInstance] playSound:@"explosion2.wav"];
+            [explosion runAction:[SKAction sequence:@[explosionAction,remove]] completion:^(){ [self gameOver]; }];
             
             
         } else if (secondBody.categoryBitMask & kWallCategory) {

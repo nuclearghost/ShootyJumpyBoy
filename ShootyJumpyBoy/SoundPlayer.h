@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Mark Meyer. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
-#import <AVFoundation/AVFoundation.h>
+#import "SoundManager.h"
 
 @interface SoundPlayer : NSObject
 
@@ -17,7 +16,8 @@
  */
 + (SoundPlayer*)sharedInstance;
 
-- (SKAction*)playSound:(NSString*)fileName;
-- (SKAction*)playMusic:(NSString*)fileName;
+- (void)playSound:(NSString*)fileName;
+- (void)playMusic:(NSString*)fileName;
+- (void)stopSoundsAndMusic;
 
 @end
