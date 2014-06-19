@@ -26,6 +26,7 @@
 @property (nonatomic) BOOL scenePaused;
 @property (nonatomic) BOOL gameOverPending;
 @property (nonatomic) BOOL jumpLeft;
+@property (nonatomic) BOOL platformLast;
 
 @end
 
@@ -99,6 +100,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
         self.scenePaused = NO;
         self.gameOverPending = NO;
         self.jumpLeft = [[NSUserDefaults standardUserDefaults] integerForKey:@"controls"] == 0;
+        self.platformLast = NO;
     }
     return self;
 }
@@ -236,9 +238,17 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     }
     
     if ([self getRandomNumberBetween:0 to:1] == 1) {
-        BOOL rotate = [self getRandomNumberBetween:0 to:1];
+        BOOL rotate = NO;
+        if (!self.platformLast) {
+            rotate = [self getRandomNumberBetween:0 to:1];
+        }
+        if (!rotate) {
+            self.platformLast = YES;
+        }
         Platform *platform = [[Platform alloc] initAtPoint:CGPointMake(self.frame.size.width, rotate ? 100 : 200) withRotation:rotate];
         [self addChild:platform];
+    } else {
+        self.platformLast = NO;
     }
     
 }
