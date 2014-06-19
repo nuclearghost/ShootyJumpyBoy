@@ -37,7 +37,7 @@
     self.physicsBody.restitution = 0;
     self.physicsBody.contactTestBitMask = kEnemyCategory | kEnemyProjectileCategory | kWallCategory;
     self.physicsBody.collisionBitMask ^= kPlayerProjectileCategory;
-    self.position = CGPointMake(20, 260);
+    self.position = CGPointMake(50, 260);
     
     
     SKAction *changeTexture = [SKAction setTexture:[SKTexture textureWithImageNamed:@"Jump"]];
