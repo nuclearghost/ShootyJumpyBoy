@@ -37,7 +37,7 @@
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = kEnemyCategory;
     self.physicsBody.restitution = 0;
-    self.physicsBody.contactTestBitMask = kPlayerCategory | kPlayerProjectileCategory | kWallCategory;
+    self.physicsBody.contactTestBitMask = kPlayerCategory | kPlayerProjectileCategory | kWallCategory | kHazardCategory;
     self.physicsBody.collisionBitMask ^= kPlayerProjectileCategory;
     self.position = point;
     

@@ -16,6 +16,7 @@
 #import "Player.h"
 #import "Enemy.h"
 #import "Platform.h"
+#import "Hazard.h"
 
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 

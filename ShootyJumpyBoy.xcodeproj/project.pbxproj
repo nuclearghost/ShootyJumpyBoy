@@ -54,6 +54,7 @@
 		F3135F271938071F00443706 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = F3135F261938071F00443706 /* Platform.m */; };
 		F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3213470193BEF2E008423ED /* OptionsViewController.m */; };
 		F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3213471193BEF2E008423ED /* OptionsViewController.xib */; };
+		F336B03E1953F5E600FE4B88 /* Hazard.m in Sources */ = {isa = PBXBuildFile; fileRef = F336B03D1953F5E600FE4B88 /* Hazard.m */; };
 		F3710DEE193CBF8B002581F1 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3710DED193CB495002581F1 /* SoundPlayer.m */; };
 		F39CEE2B1947E76A006C7ED4 /* Menu Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE2A1947E76A006C7ED4 /* Menu Background.png */; };
 		F39CEE331947F729006C7ED4 /* Left.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE311947F729006C7ED4 /* Left.png */; };
@@ -151,6 +152,8 @@
 		F321346F193BEF2E008423ED /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		F3213470193BEF2E008423ED /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
 		F3213471193BEF2E008423ED /* OptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsViewController.xib; sourceTree = "<group>"; };
+		F336B03C1953F5E600FE4B88 /* Hazard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hazard.h; sourceTree = "<group>"; };
+		F336B03D1953F5E600FE4B88 /* Hazard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hazard.m; sourceTree = "<group>"; };
 		F3710DEC193CB495002581F1 /* SoundPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		F3710DED193CB495002581F1 /* SoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		F39CEE2A1947E76A006C7ED4 /* Menu Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Background.png"; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 				F3B9ABAC19361B5200C1B843 /* Player.m */,
 				F3B9ABAF19362BD000C1B843 /* Enemy.h */,
 				F3B9ABB019362BD000C1B843 /* Enemy.m */,
+				F336B03C1953F5E600FE4B88 /* Hazard.h */,
+				F336B03D1953F5E600FE4B88 /* Hazard.m */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				F30ED69C19328ED80027483C /* ViewController.m in Sources */,
 				F30ED69619328ED80027483C /* AppDelegate.m in Sources */,
 				F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */,
+				F336B03E1953F5E600FE4B88 /* Hazard.m in Sources */,
 				F30ED6F21934009B0027483C /* GameOverScene.m in Sources */,
 				F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */,
 				F3B9ABAD19361B5200C1B843 /* Player.m in Sources */,
