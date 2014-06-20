@@ -367,6 +367,13 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             }
         }
         [projectile runAction:[SKAction removeFromParent]];
+    }else if (firstBody.categoryBitMask & kEnemyCategory) {
+        
+        if (secondBody.categoryBitMask & kWallCategory) {
+            Enemy *en = (Enemy*)((contact.bodyA.categoryBitMask & kEnemyCategory) ? contact.bodyA.node : contact.bodyB.node);
+            [en setGroundContact:YES];
+        }
+
     } else if ((firstBody.categoryBitMask & kPlayerCategory) != 0) {
         if (secondBody.categoryBitMask & (kEnemyCategory | kEnemyProjectileCategory |kHazardCategory)) {
             SKNode *player = (contact.bodyA.categoryBitMask & kPlayerCategory) ? contact.bodyA.node : contact.bodyB.node;

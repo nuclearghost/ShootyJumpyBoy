@@ -39,7 +39,6 @@
     self.physicsBody.collisionBitMask ^= kPlayerProjectileCategory;
     self.position = CGPointMake(50, 260);
     
-    
     SKAction *changeTexture = [SKAction setTexture:[SKTexture textureWithImageNamed:@"Jump"]];
     SKAction *impulse = [SKAction performSelector:@selector(jumpNode) onTarget:self];
     self.jumpAction = [SKAction sequence:@[changeTexture, impulse]];
