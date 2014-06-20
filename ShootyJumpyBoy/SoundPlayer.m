@@ -10,6 +10,8 @@
 
 @interface SoundPlayer()
 
+@property (strong, nonatomic) NSMutableDictionary *soundsDict;
+
 @property (nonatomic) BOOL soundEffectsEnabled;
 @property (nonatomic) BOOL musicEnabled;
 
@@ -28,7 +30,7 @@ static bool isFirstAccess = YES;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         isFirstAccess = NO;
-        SINGLETON = [[super allocWithZone:NULL] init];    
+        SINGLETON = [[super allocWithZone:NULL] init];
     });
     
     return SINGLETON;
@@ -87,8 +89,27 @@ static bool isFirstAccess = YES;
     [SoundManager sharedManager].allowsBackgroundMusic = YES;
     [[SoundManager sharedManager]prepareToPlayWithSound:@"hit.wav"];
 
-    
     return self;
+}
+
+- (void)initializeSoundDictioanry {
+    self.soundsDict = [[NSMutableDictionary alloc] initWithCapacity:8];
+    [self.soundsDict setObject:[Sound soundNamed:@"explosion.wav"]
+                        forKey:[NSNumber numberWithInt: kExplosionSound]];
+    [self.soundsDict setObject:[Sound soundNamed:@"explosion2.wav"]
+                        forKey:[NSNumber numberWithInt: kExplosion2Sound]];
+    [self.soundsDict setObject:[Sound soundNamed:@"hit.wav"]
+                        forKey:[NSNumber numberWithInt: kHitSound]];
+    [self.soundsDict setObject:[Sound soundNamed:@"jump.wav"]
+                        forKey:[NSNumber numberWithInt: kJumpSound]];
+    [self.soundsDict setObject:[Sound soundNamed:@"laser.wav"]
+                        forKey:[NSNumber numberWithInt: kLaserSound]];
+    [self.soundsDict setObject:[Sound soundNamed:@"pickup.wav"]
+                        forKey:[NSNumber numberWithInt: kPickupSound]];
+    [self.soundsDict setObject:[Sound soundNamed:@"powerup.wav"]
+                        forKey:[NSNumber numberWithInt: kPowerupSound]];
+    [self.soundsDict setObject:[Sound soundNamed:@"select.wav"]
+                        forKey:[NSNumber numberWithInt: kSelectSound]];
 }
 
 /**
@@ -121,6 +142,21 @@ static bool isFirstAccess = YES;
 - (void)playSound:(NSString*)fileName {
     if (self.soundEffectsEnabled) {
         [[SoundManager sharedManager] playSound:fileName];
+    }
+}
+
+- (void)playSoundWithId:(uint32_t)soundId {
+    if (self.soundEffectsEnabled) {
+        [[SoundManager sharedManager]
+         playSound:[self.soundsDict objectForKey:[NSNumber numberWithInt:soundId]]];
+    }
+}
+
+- (SKAction*)getSoundActionFromFile:(NSString *)fileName {
+    if (self.soundEffectsEnabled) {
+        return [SKAction playSoundFileNamed:fileName waitForCompletion:NO];
+    }  else {
+        return [SKAction waitForDuration:0];
     }
 }
 

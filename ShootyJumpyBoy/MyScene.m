@@ -215,9 +215,9 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     
     SKAction *fire = [SKAction moveToX:self.frame.size.width + bullet.size.width duration:2];
     SKAction *remove = [SKAction removeFromParent];
-    [[SoundPlayer sharedInstance] playSound:@"laser.wav"];
+    SKAction *laserSound = [[SoundPlayer sharedInstance] getSoundActionFromFile:@"laser.wav"];
     
-    [bullet runAction:[SKAction sequence:@[fire, remove]]];
+    [bullet runAction:[SKAction sequence:@[laserSound, fire, remove]]];
     
     NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Projectile" ofType:
                            @"sks"];
@@ -360,8 +360,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
                 
                 SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
                 SKAction *remove = [SKAction removeFromParent];
-                [[SoundPlayer sharedInstance] playSound:@"explosion.wav"];
-                [explosion runAction:[SKAction sequence:@[explosionAction, remove]]];
+                SKAction *explosionSound = [[SoundPlayer sharedInstance] getSoundActionFromFile: @"explosion.wav"];
+                [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction, remove]]];
                 
                 self.score += 100;
             }
@@ -384,10 +384,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             
             SKAction *explosionAction = [SKAction animateWithTextures:self.explosionTextures timePerFrame:0.06];
             SKAction *remove = [SKAction removeFromParent];
-            [[SoundPlayer sharedInstance] playSound:@"explosion2.wav"];
-            [explosion runAction:[SKAction sequence:@[explosionAction,remove]] completion:^(){ [self gameOver]; }];
-            
-            
+            SKAction *explosionSound = [[SoundPlayer sharedInstance] getSoundActionFromFile: @"explosion2.wav"];
+            [explosion runAction:[SKAction sequence:@[explosionSound, explosionAction,remove]] completion:^(){ [self gameOver]; }];
         } else if (secondBody.categoryBitMask & kWallCategory) {
             [self.player setGroundContact:YES];
         }

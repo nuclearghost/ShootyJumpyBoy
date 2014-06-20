@@ -74,11 +74,13 @@
  */
 - (void)jumpNode {
     if (self.onGround) {
-        [[SoundPlayer sharedInstance] playSound:@"jump.wav"];
+        SKAction *sound = [[SoundPlayer sharedInstance] getSoundActionFromFile:@"jump.wav"];
+        [self runAction:sound];
         [self.physicsBody applyImpulse:CGVectorMake(0, 30.0) atPoint:self.position];
     } else if (self.doubleJump && !self.doubleJumped) {
         self.doubleJumped = YES;
-        [[SoundPlayer sharedInstance] playSound:@"jump.wav"];
+        SKAction *sound = [[SoundPlayer sharedInstance] getSoundActionFromFile:@"jump.wav"];
+        [self runAction:sound];
         [self.physicsBody setVelocity:CGVectorMake(0, 0)];
         [self.physicsBody applyImpulse:CGVectorMake(0, 40.0) atPoint:self.position];
     }

@@ -10,12 +10,21 @@
 
 @implementation Constants
 
-const uint32_t kPlayerCategory = 0x1 << 0;
+const uint32_t kPlayerCategory           = 0x1 << 0;
 const uint32_t kPlayerProjectileCategory = 0x1 << 1;
-const uint32_t kEnemyCategory = 0x1 << 2;
-const uint32_t kEnemyProjectileCategory = 0x1 << 3;
-const uint32_t kWallCategory = 0x1 << 4;
-const uint32_t kHazardCategory = 0x1 << 5;
+const uint32_t kEnemyCategory            = 0x1 << 2;
+const uint32_t kEnemyProjectileCategory  = 0x1 << 3;
+const uint32_t kWallCategory             = 0x1 << 4;
+const uint32_t kHazardCategory           = 0x1 << 5;
+
+const uint32_t kExplosionSound  = 0x1 << 0;
+const uint32_t kExplosion2Sound = 0x1 << 1;
+const uint32_t kHitSound        = 0x1 << 2;
+const uint32_t kJumpSound       = 0x1 << 3;
+const uint32_t kLaserSound      = 0x1 << 4;
+const uint32_t kPickupSound     = 0x1 << 5;
+const uint32_t kPowerupSound    = 0x1 << 6;
+const uint32_t kSelectSound     = 0x1 << 7;
 
 NSString* const kCustomFont = @"8BITWONDERNominal";
 

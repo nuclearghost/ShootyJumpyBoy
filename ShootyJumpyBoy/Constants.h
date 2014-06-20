@@ -16,19 +16,19 @@ FOUNDATION_EXPORT const uint32_t kEnemyCategory;
 FOUNDATION_EXPORT const uint32_t kEnemyProjectileCategory;
 FOUNDATION_EXPORT const uint32_t kWallCategory;
 FOUNDATION_EXPORT const uint32_t kHazardCategory;
+
+FOUNDATION_EXPORT const uint32_t kExplosionSound;
+FOUNDATION_EXPORT const uint32_t kExplosion2Sound;
+FOUNDATION_EXPORT const uint32_t kHitSound;
+FOUNDATION_EXPORT const uint32_t kJumpSound;
+FOUNDATION_EXPORT const uint32_t kLaserSound;
+FOUNDATION_EXPORT const uint32_t kPickupSound;
+FOUNDATION_EXPORT const uint32_t kPowerupSound;
+FOUNDATION_EXPORT const uint32_t kSelectSound;
+
 FOUNDATION_EXPORT NSString * const kCustomFont;
 
 FOUNDATION_EXPORT const float BG_VELOCITY;
 FOUNDATION_EXPORT const float kXDeletePoint;
-/*
-static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
-{
-    return CGPointMake(a.x + b.x, a.y + b.y);
-}
 
-static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
-{
-    return CGPointMake(a.x * b, a.y * b);
-}
- */
 @end
