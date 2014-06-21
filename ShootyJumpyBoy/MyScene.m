@@ -86,7 +86,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
             [self generateEnvironment];
         }];
         
-        SKTextureAtlas *explosionAtlas = [SKTextureAtlas atlasNamed:@"EXPLOSION"];
+        SKTextureAtlas *explosionAtlas = [SKTextureAtlas atlasNamed:@"Disintegrate"];
         NSArray *textureNames = [explosionAtlas textureNames];
         self.explosionTextures = [NSMutableArray new];
         for (NSString *name in textureNames) {
@@ -250,7 +250,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     } else {
         self.platformLast = NO;
         if ([self getRandomNumberBetween:0 to:1] == 1) {
-            Hazard *hzrd = [[Hazard alloc] initHazardOfType:0 AtPoint:CGPointMake(self.frame.size.width, 100)];
+            Hazard *hzrd = [[Hazard alloc] initHazardOfType:0 AtPoint:CGPointMake(self.frame.size.width, 95)];
             [self addChild:hzrd];
         }
     }
@@ -275,7 +275,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
     self.scoreDisplay = [[SKLabelNode alloc] initWithFontNamed:kCustomFont];
     self.scoreDisplay.text = [NSString stringWithFormat:@"%ld", (long)self.score];
     self.scoreDisplay.fontSize = 20;
-    self.scoreDisplay.position = CGPointMake(self.frame.size.width - 30, self.frame.size.height - 30);
+    self.scoreDisplay.position = CGPointMake(self.frame.size.width - 40, self.frame.size.height - 30);
     [self addChild:self.scoreDisplay];
 }
 

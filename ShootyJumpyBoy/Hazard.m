@@ -11,9 +11,9 @@
 @implementation Hazard
 
 - (id)initHazardOfType:(uint32_t)type AtPoint: (CGPoint)point {
-    self = [Hazard spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(50, 2)]
+    self = [Hazard spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(30, 2)]
     ;
-    NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Flame" ofType:
+    NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"Spark" ofType:
                            @"sks"];
     SKEmitterNode *projectileEmitter = [NSKeyedUnarchiver unarchiveObjectWithFile:smokePath];
     projectileEmitter.position = CGPointMake(0, self.size.height/2);

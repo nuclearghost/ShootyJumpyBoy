@@ -30,9 +30,9 @@
 }
 
 - (id)initMetAtPoint:(CGPoint)point {
-    self = [Enemy spriteNodeWithImageNamed:@"Met"];
+    self = [Enemy spriteNodeWithImageNamed:@"Bunny"];
     self.name = @"enemyr";
-    [self setScale:0.1];
+    [self setScale:0.15];
     
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = kEnemyCategory;

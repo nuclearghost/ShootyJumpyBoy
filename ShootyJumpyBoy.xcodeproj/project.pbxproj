@@ -72,6 +72,9 @@
 		F3BAE6FA193594C100BF97E6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6F9193594C100BF97E6 /* libz.dylib */; };
 		F3CB908F1952B00A006E62DB /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CB908E1952B00A006E62DB /* SoundManager.m */; };
 		F3CB90911952B04C006E62DB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CB90901952B04C006E62DB /* AVFoundation.framework */; };
+		F3CCCB7E19552F05001CA2F7 /* Spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3CCCB7D19552F05001CA2F7 /* Spark.sks */; };
+		F3CCCB8D19553E45001CA2F7 /* Disintegrate.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3CCCB8C19553E45001CA2F7 /* Disintegrate.atlas */; };
+		F3CCCB8F195552CF001CA2F7 /* Bunny.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CCCB8E195552CF001CA2F7 /* Bunny.png */; };
 		F3CF5B4B194515160046D450 /* Block.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4A194515160046D450 /* Block.png */; };
 		F3CF5B4D194517C50046D450 /* Platform.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4C194517C50046D450 /* Platform.png */; };
 		F3CF5B4F194542870046D450 /* Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B4E194542870046D450 /* Wall.png */; };
@@ -178,6 +181,9 @@
 		F3CB908D1952B00A006E62DB /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		F3CB908E1952B00A006E62DB /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		F3CB90901952B04C006E62DB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F3CCCB7D19552F05001CA2F7 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
+		F3CCCB8C19553E45001CA2F7 /* Disintegrate.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Disintegrate.atlas; sourceTree = "<group>"; };
+		F3CCCB8E195552CF001CA2F7 /* Bunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bunny.png; sourceTree = "<group>"; };
 		F3CF5B4A194515160046D450 /* Block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block.png; sourceTree = "<group>"; };
 		F3CF5B4C194517C50046D450 /* Platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Platform.png; sourceTree = "<group>"; };
 		F3CF5B4E194542870046D450 /* Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wall.png; sourceTree = "<group>"; };
@@ -338,6 +344,7 @@
 		F30ED6CB1932961D0027483C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3CCCB8C19553E45001CA2F7 /* Disintegrate.atlas */,
 				F39CEE2C1947F6DA006C7ED4 /* Instructions */,
 				F39CEE291947E75D006C7ED4 /* Menu */,
 				F308476F1936BB4200848FAE /* SoundEffects */,
@@ -350,6 +357,7 @@
 				F30ED6CF19329D7A0027483C /* Environment */,
 				F30ED6CC193296260027483C /* Player */,
 				F3CF5B58194588830046D450 /* Flame.sks */,
+				F3CCCB7D19552F05001CA2F7 /* Spark.sks */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -381,6 +389,7 @@
 		F30ED6E01932F90F0027483C /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				F3CCCB8E195552CF001CA2F7 /* Bunny.png */,
 				F30ED6E11932F92A0027483C /* Met.png */,
 			);
 			name = Enemies;
@@ -564,6 +573,7 @@
 				F30ED6D71932E6270027483C /* Run.atlas in Resources */,
 				F30ED69019328ED80027483C /* InfoPlist.strings in Resources */,
 				F308477D1936BB5700848FAE /* pickup.wav in Resources */,
+				F3CCCB8F195552CF001CA2F7 /* Bunny.png in Resources */,
 				F30ED6DC1932EB960027483C /* Projectile.sks in Resources */,
 				F308477E1936BB5700848FAE /* powerup.wav in Resources */,
 				F30ED6D91932E86C0027483C /* bg.png in Resources */,
@@ -587,8 +597,10 @@
 				F30ED6D319329E4B0027483C /* brick.png in Resources */,
 				F30ED6FF193425A40027483C /* PauseSelected.png in Resources */,
 				F30847791936BB5700848FAE /* explosion2.wav in Resources */,
+				F3CCCB8D19553E45001CA2F7 /* Disintegrate.atlas in Resources */,
 				F308477C1936BB5700848FAE /* laser.wav in Resources */,
 				F30ED6FB193416990027483C /* My Song.m4a in Resources */,
+				F3CCCB7E19552F05001CA2F7 /* Spark.sks in Resources */,
 				F30ED6DF1932F4DB0027483C /* Floor.png in Resources */,
 				F3CF5B59194588830046D450 /* Flame.sks in Resources */,
 				F30ED6D51932A0E00027483C /* Jump.png in Resources */,
