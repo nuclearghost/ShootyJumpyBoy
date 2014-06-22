@@ -10,6 +10,7 @@
 
 #import "Flurry.h"
 #import "FlurryAds.h"
+#import "iRate.h"
 
 @implementation AppDelegate
 
@@ -18,7 +19,6 @@
     [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"SX36VDWCTTQJKWQ8547P"];
     [FlurryAds initialize:self.window.rootViewController];
-    //[FlurryAds enableTestAds:YES];
     
     NSMutableDictionary *defaults = [[NSMutableDictionary alloc] initWithCapacity:4];
     [defaults setObject:[NSDate date] forKey:@"Launch"];
@@ -60,6 +60,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
++ (void)initialize
+{
+    //configure iRate
+    [iRate sharedInstance].daysUntilPrompt = 5;
 }
 
 @end

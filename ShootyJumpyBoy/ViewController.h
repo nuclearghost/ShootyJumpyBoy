@@ -16,6 +16,6 @@
 #import "StartScene.h"
 #import "OptionsViewController.h"
 
-@interface ViewController : UIViewController <GKGameCenterControllerDelegate>
+@interface ViewController : UIViewController
 
 @end

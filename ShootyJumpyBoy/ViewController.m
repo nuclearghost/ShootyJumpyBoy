@@ -10,7 +10,7 @@
 
 @interface ViewController()
 
-@property (strong, nonatomic) ADBannerView *iAdView;
+@property (nonatomic, assign) BOOL iAdEnabled;
 
 @end
 
@@ -26,10 +26,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShare:) name:@"showShare" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showGameCenter:) name:@"showGameCenter" object:nil];
 
-    //self.canDisplayBannerAds = YES;
-    //SKView * skView = (SKView *)self.originalContentView;
+    [self determineAds];
     
-    SKView *skView = (SKView *)self.view;
+    SKView *skView;
+    if (self.iAdEnabled) {
+        skView = (SKView *)self.originalContentView;
+    } else {
+        skView = (SKView *)self.view;
+    }
+    
     //skView.showsFPS = YES;
     //skView.showsNodeCount = YES;
     //skView.showsPhysics = YES;
@@ -88,14 +93,21 @@
     if ([notification.name isEqualToString:@"hideAd"]) {
         [FlurryAds removeAdFromSpace:@"SJB Game Over"];
     } else if ([notification.name isEqualToString:@"showAd"]) {
-        //[FlurryAds fetchAndDisplayAdForSpace:@"SJB Game Over" view:self.view size:BANNER_TOP];
+        if (!self.iAdEnabled) {
+            [FlurryAds fetchAndDisplayAdForSpace:@"SJB Game Over" view:self.view size:BANNER_TOP];
+        }
     }
 }
 
-#pragma mark GKGameCenterControllerDelegate
--(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
-{
-    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
+
+#pragma mark ad details
+- (void)determineAds {
+    self.iAdEnabled = NO;
+    
+    if ([self respondsToSelector:@selector(setCanDisplayBannerAds:)]) {
+        self.canDisplayBannerAds = YES;
+        self.iAdEnabled = YES;
+    }
 }
 
 @end

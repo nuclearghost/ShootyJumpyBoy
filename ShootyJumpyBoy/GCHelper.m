@@ -117,10 +117,10 @@ static bool isFirstAccess = YES;
     }];
 }
 
--(void)showLeaderboardInViewController:(UIViewController <GKGameCenterControllerDelegate>*)presentingVC {
+-(void)showLeaderboardInViewController:(UIViewController *)presentingVC {
     GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
     
-    gcViewController.gameCenterDelegate = presentingVC;
+    gcViewController.gameCenterDelegate = self;
     
 
     gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
@@ -129,4 +129,9 @@ static bool isFirstAccess = YES;
     [presentingVC presentViewController:gcViewController animated:YES completion:nil];
 }
 
+#pragma mark GKGameCenterControllerDelegate
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
+}
 @end

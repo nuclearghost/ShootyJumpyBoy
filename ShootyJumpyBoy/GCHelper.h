@@ -11,13 +11,13 @@
 /**
  *  Unused class for game center
  */
-@interface GCHelper : NSObject
+@interface GCHelper : NSObject  <GKGameCenterControllerDelegate>
 
 
 + (GCHelper*)sharedInstance;
 
 - (void) authenticateLocalPlayerInViewController:(UIViewController*)presentingVC;
 - (void) reportScore:(NSInteger)points;
-- (void)showLeaderboardInViewController:(UIViewController <GKGameCenterControllerDelegate>*)presentingVC;
+- (void)showLeaderboardInViewController:(UIViewController *)presentingVC;
 
 @end
