@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import <iAd/iAd.h>
 
-@interface ViewController : UIViewController
+#import "FlurryAds.h"
+#import "GCHelper.h"
+
+#import "StartScene.h"
+#import "OptionsViewController.h"
+
+@interface ViewController : UIViewController <GKGameCenterControllerDelegate>
 
 @end

@@ -66,7 +66,8 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
  */
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"hideAd" object:nil];
+        
         [self initalizingScrollingBackground];
         
         self.physicsWorld.contactDelegate = self;

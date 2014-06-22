@@ -12,6 +12,8 @@
 #import "SKButton.h"
 #import "StartScene.h"
 
+#import "GCHelper.h"
+
 @interface GameOverScene : SKScene
 
 -(id) initWithSize:(CGSize)size andScore:(NSInteger)score;

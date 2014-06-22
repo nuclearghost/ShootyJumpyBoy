@@ -8,6 +8,13 @@
 
 #import "GCHelper.h"
 
+@interface GCHelper()
+
+@property (assign, nonatomic) BOOL gameCenterAvailable;
+@property (strong, nonatomic) NSString *leaderboardIdentifier;
+
+@end
+
 @implementation GCHelper
 
 static GCHelper *SINGLETON = nil;
@@ -21,7 +28,7 @@ static bool isFirstAccess = YES;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         isFirstAccess = NO;
-        SINGLETON = [[super allocWithZone:NULL] init];    
+        SINGLETON = [[super allocWithZone:NULL] init];
     });
     
     return SINGLETON;
@@ -68,25 +75,58 @@ static bool isFirstAccess = YES;
 
 #pragma mark - Came Center Methods
 
-- (void) authenticateLocalPlayer
+- (void) authenticateLocalPlayerInViewController:(UIViewController*)presentingVC
 {
     GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
     localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
         if (viewController != nil)
         {
-            //showAuthenticationDialogWhenReasonable: is an example method name. Create your own method that displays an authentication view when appropriate for your app.
-            [self showAuthenticationDialogWhenReasonable: viewController];
+            [presentingVC presentViewController:viewController animated:YES completion:nil];
         }
-        else if (localPlayer.isAuthenticated)
-        {
-            //authenticatedPlayer: is an example method name. Create your own method that is called after the loacal player is authenticated.
-            [self authenticatedPlayer: localPlayer];
+        else {
+            if ([GKLocalPlayer localPlayer].authenticated) {
+                self.gameCenterAvailable = YES;
+
+                // Get the default leaderboard identifier.
+                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
+                    
+                    if (error != nil) {
+                        NSLog(@"%@", [error localizedDescription]);
+                    }
+                    else{
+                        _leaderboardIdentifier = leaderboardIdentifier;
+                    }
+                }];
+            }
+            
+            else{
+                self.gameCenterAvailable = NO;
+            }
         }
-        else
-        {
-            [self disableGameCenter];
+    };
+}
+
+- (void) reportScore:(NSInteger)points {
+    GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:_leaderboardIdentifier];
+    score.value = points;
+    
+    [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
         }
     }];
+}
+
+-(void)showLeaderboardInViewController:(UIViewController <GKGameCenterControllerDelegate>*)presentingVC {
+    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+    
+    gcViewController.gameCenterDelegate = presentingVC;
+    
+
+    gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+    gcViewController.leaderboardIdentifier = self.leaderboardIdentifier;
+    
+    [presentingVC presentViewController:gcViewController animated:YES completion:nil];
 }
 
 @end

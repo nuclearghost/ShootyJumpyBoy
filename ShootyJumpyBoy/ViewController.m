@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 
-#import "FlurryAds.h"
+@interface ViewController()
 
-#import "StartScene.h"
-#import "OptionsViewController.h"
+@property (strong, nonatomic) ADBannerView *iAdView;
+
+@end
 
 @implementation ViewController
 
@@ -23,32 +24,24 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"showAd" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showOptions:) name:@"showOptions" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShare:) name:@"showShare" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showGameCenter:) name:@"showGameCenter" object:nil];
 
-
-    SKView * skView = (SKView *)self.view;
+    //self.canDisplayBannerAds = YES;
+    //SKView * skView = (SKView *)self.originalContentView;
+    
+    SKView *skView = (SKView *)self.view;
     //skView.showsFPS = YES;
     //skView.showsNodeCount = YES;
     //skView.showsPhysics = YES;
+    
+    [[GCHelper sharedInstance] authenticateLocalPlayerInViewController:self];
     
     SKScene * scene = [StartScene sceneWithSize:CGSizeMake(skView.bounds.size.height, skView.bounds.size.width)];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [skView presentScene:scene];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
+#pragma mark notification handlers
 /**
  *  Display the options view controller
  *
@@ -61,6 +54,11 @@
     }];
 }
 
+/**
+ *  show UIActivtyViewController to share high score
+ *
+ *  @param notifcation unused
+ */
 - (void)showShare:(NSNotification *)notifcation {
     double highScore = [[NSUserDefaults standardUserDefaults] doubleForKey:@"high_score"];
     NSString *string = [NSString stringWithFormat:@"I just got a high score of %.0f in Shooty Jumpy Boy", highScore];
@@ -76,6 +74,10 @@
                                      }];
 }
 
+- (void)showGameCenter:(NSNotification *)notification {
+    [[GCHelper sharedInstance] showLeaderboardInViewController:self];
+}
+
 /**
  *  Used to hide or show an ad
  *
@@ -86,8 +88,14 @@
     if ([notification.name isEqualToString:@"hideAd"]) {
         [FlurryAds removeAdFromSpace:@"SJB Game Over"];
     } else if ([notification.name isEqualToString:@"showAd"]) {
-        [FlurryAds fetchAndDisplayAdForSpace:@"SJB Game Over" view:self.view size:BANNER_TOP];
+        //[FlurryAds fetchAndDisplayAdForSpace:@"SJB Game Over" view:self.view size:BANNER_TOP];
     }
+}
+
+#pragma mark GKGameCenterControllerDelegate
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

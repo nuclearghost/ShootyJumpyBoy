@@ -15,7 +15,6 @@
 	self = [super initWithSize:size];
 	if (self)
 	{
-		self.backgroundColor = [SKColor colorWithRed:0.21 green:0.63 blue:0.59 alpha:1.0];
         SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"Menu Background"];
         bg.position = CGPointMake(0, 0);
         [bg setScale:0.5];
@@ -33,6 +32,8 @@
 		scoreLabel.fontSize = 20;
 		scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2 + 20);
 		[self addChild:scoreLabel];
+        
+        [[GCHelper sharedInstance] reportScore:score];
         
         double highScore = [[NSUserDefaults standardUserDefaults] doubleForKey:@"high_score"];
         if (score > highScore) {

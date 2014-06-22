@@ -32,6 +32,8 @@
         
         [self addStartButton];
         [self addOptionButton];
+        [self addGameCenterButton];
+
 	}
 	return self;
 }
@@ -71,6 +73,24 @@
     [backButton setTouchUpInsideTarget:self action:@selector(transitionOptions:)];
     [self addChild:backButton];
 }
+
+/**
+ *  Add options button
+ */
+- (void)addGameCenterButton {
+    SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
+    [backButton setPosition:CGPointMake(self.frame.size.width/2, self.frame.size.height/4)];
+    [backButton.title setText:@"Game Center"];
+    [backButton.title setFontName:kCustomFont];
+    [backButton.title setFontSize:10.0];
+    [backButton setTouchUpInsideTarget:self action:@selector(transitionGameCenter:)];
+    [self addChild:backButton];
+}
+
+- (void)transitionGameCenter: (NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showGameCenter" object:nil];
+}
+
 /**
  *  Post notification to display options screen
  *

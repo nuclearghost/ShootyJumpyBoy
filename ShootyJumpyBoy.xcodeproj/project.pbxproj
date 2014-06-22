@@ -68,7 +68,6 @@
 		F3BAE6F01935949800BF97E6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6EF1935949800BF97E6 /* AdSupport.framework */; };
 		F3BAE6F2193594A200BF97E6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6F1193594A200BF97E6 /* MediaPlayer.framework */; };
 		F3BAE6F4193594A800BF97E6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6F3193594A800BF97E6 /* Security.framework */; };
-		F3BAE6F6193594AF00BF97E6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6F5193594AF00BF97E6 /* StoreKit.framework */; };
 		F3BAE6F8193594B600BF97E6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6F7193594B600BF97E6 /* SystemConfiguration.framework */; };
 		F3BAE6FA193594C100BF97E6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BAE6F9193594C100BF97E6 /* libz.dylib */; };
 		F3CB908F1952B00A006E62DB /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CB908E1952B00A006E62DB /* SoundManager.m */; };
@@ -82,6 +81,7 @@
 		F3CF5B51194544C00046D450 /* 8-BIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B50194544C00046D450 /* 8-BIT.TTF */; };
 		F3CF5B55194576C60046D450 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B54194576C60046D450 /* Background.png */; };
 		F3CF5B59194588830046D450 /* Flame.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3CF5B58194588830046D450 /* Flame.sks */; };
+		F3E157B71957596B00A5088B /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F30ED6F8193410610027483C /* GCHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,7 +178,6 @@
 		F3BAE6EF1935949800BF97E6 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		F3BAE6F1193594A200BF97E6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F3BAE6F3193594A800BF97E6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		F3BAE6F5193594AF00BF97E6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F3BAE6F7193594B600BF97E6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F3BAE6F9193594C100BF97E6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F3CB908D1952B00A006E62DB /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
@@ -203,7 +202,6 @@
 				F3CB90911952B04C006E62DB /* AVFoundation.framework in Frameworks */,
 				F3BAE6FA193594C100BF97E6 /* libz.dylib in Frameworks */,
 				F3BAE6F8193594B600BF97E6 /* SystemConfiguration.framework in Frameworks */,
-				F3BAE6F6193594AF00BF97E6 /* StoreKit.framework in Frameworks */,
 				F3BAE6F4193594A800BF97E6 /* Security.framework in Frameworks */,
 				F3BAE6F2193594A200BF97E6 /* MediaPlayer.framework in Frameworks */,
 				F3BAE6F01935949800BF97E6 /* AdSupport.framework in Frameworks */,
@@ -270,7 +268,6 @@
 				F3CB90901952B04C006E62DB /* AVFoundation.framework */,
 				F3BAE6F9193594C100BF97E6 /* libz.dylib */,
 				F3BAE6F7193594B600BF97E6 /* SystemConfiguration.framework */,
-				F3BAE6F5193594AF00BF97E6 /* StoreKit.framework */,
 				F3BAE6F3193594A800BF97E6 /* Security.framework */,
 				F3BAE6F1193594A200BF97E6 /* MediaPlayer.framework */,
 				F3BAE6EF1935949800BF97E6 /* AdSupport.framework */,
@@ -547,6 +544,9 @@
 							com.apple.GameCenter = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
 						};
 					};
 					F30ED6A719328ED90027483C = {
@@ -636,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E157B71957596B00A5088B /* GCHelper.m in Sources */,
 				F30ED6EA1933AB8F0027483C /* SKButton.m in Sources */,
 				F30ED6C11932901C0027483C /* Constants.m in Sources */,
 				F30ED6E71933AB100027483C /* StartScene.m in Sources */,

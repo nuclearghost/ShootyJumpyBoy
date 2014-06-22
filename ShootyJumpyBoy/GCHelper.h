@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mark Meyer. All rights reserved.
 //
 
-#import <GameCenter/GameCenter.h>
+@import GameKit;
 
 /**
  *  Unused class for game center
@@ -16,6 +16,8 @@
 
 + (GCHelper*)sharedInstance;
 
-- (void) authenticateLocalPlayer;
+- (void) authenticateLocalPlayerInViewController:(UIViewController*)presentingVC;
+- (void) reportScore:(NSInteger)points;
+- (void)showLeaderboardInViewController:(UIViewController <GKGameCenterControllerDelegate>*)presentingVC;
 
 @end
