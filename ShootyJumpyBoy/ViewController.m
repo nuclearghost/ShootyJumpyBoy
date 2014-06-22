@@ -22,6 +22,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"hideAd" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"showAd" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showOptions:) name:@"showOptions" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShare:) name:@"showShare" object:nil];
+
 
     SKView * skView = (SKView *)self.view;
     //skView.showsFPS = YES;
@@ -57,6 +59,21 @@
     [self presentViewController:ovc animated:YES completion:^{
         NSLog(@"Options Presented");
     }];
+}
+
+- (void)showShare:(NSNotification *)notifcation {
+    double highScore = [[NSUserDefaults standardUserDefaults] doubleForKey:@"high_score"];
+    NSString *string = [NSString stringWithFormat:@"I just got a high score of %.0f in Shooty Jumpy Boy", highScore];
+    //NSURL *URL = [NSURL URLWithString:@"https://www.google.com"];
+    
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[string]
+                                      applicationActivities:nil];
+    [self presentViewController:activityViewController
+                                       animated:YES
+                                     completion:^{
+                                         NSLog(@"Completed sharing");
+                                     }];
 }
 
 /**

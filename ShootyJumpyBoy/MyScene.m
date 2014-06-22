@@ -65,9 +65,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
  *  @return SKScene
  */
 -(id)initWithSize:(CGSize)size {
-    
-    NSLog(@"CGSize: %@", NSStringFromCGSize(size));
-    
     if (self = [super initWithSize:size]) {
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         [self initalizingScrollingBackground];
@@ -305,7 +302,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
  *  Transition to GameOverScene
  */
 - (void)gameOver {
-    NSLog(@"Game Over");
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1.0];
     GameOverScene* goScene = [[GameOverScene alloc] initWithSize:self.view.bounds.size andScore:self.score];
     [[SoundPlayer sharedInstance] stopSoundsAndMusic];
@@ -347,7 +343,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 
 #pragma mark Physics Delegate
 -(void)didBeginContact:(SKPhysicsContact *)contact {
-    NSLog(@"Contact: %@",contact);
     SKPhysicsBody *firstBody;
     SKPhysicsBody *secondBody;
     
@@ -412,7 +407,6 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 }
 
 -(void) didEndContact:(SKPhysicsContact *)contact {
-    NSLog(@"End Contact: %@",contact);
     SKPhysicsBody *firstBody;
     SKPhysicsBody *secondBody;
     

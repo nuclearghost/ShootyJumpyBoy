@@ -14,7 +14,6 @@
 
 -(id) initWithSize:(CGSize)size
 {
-    NSLog(@"CGSize: %@", NSStringFromCGSize(size));
 	self = [super initWithSize:size];
 	if (self)
 	{
@@ -56,7 +55,6 @@
  *  @param notification unused
  */
 - (void)transitionStart:(NSNotification *)notification {
-    NSLog(@"Transition to start");
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1.0];
     MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];    //  Optionally, insert code to configure the new scene.
     [self.scene.view presentScene: myScene transition: reveal];}
@@ -79,7 +77,6 @@
  *  @param notification unused
  */
 - (void)transitionOptions:(NSNotification *)notification {
-    NSLog(@"Transition to options");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"showOptions" object:nil];
 }
 

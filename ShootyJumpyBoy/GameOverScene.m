@@ -24,13 +24,13 @@
 		
 		SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		myLabel.text = @"Game Over";
-		myLabel.fontSize = 40;
+		myLabel.fontSize = 30;
 		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 3*self.frame.size.height/4);
 		[self addChild:myLabel];
         
         SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)score];
-		scoreLabel.fontSize = 30;
+		scoreLabel.fontSize = 20;
 		scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2 + 20);
 		[self addChild:scoreLabel];
         
@@ -43,12 +43,13 @@
 
         SKLabelNode* highScoreLabel = [SKLabelNode labelNodeWithFontNamed:kCustomFont];
 		highScoreLabel.text = [NSString stringWithFormat:@"High Score: %.0f", highScore];
-		highScoreLabel.fontSize = 30;
+		highScoreLabel.fontSize = 20;
 		highScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height/2 - 20);
 		[self addChild:highScoreLabel];
         
         [self addRetryButton];
         [self addMenuButton];
+        [self addShareButton];
         
 	}
 	return self;
@@ -78,9 +79,7 @@
  *
  *  @param notification unused
  */
-- (void)transitionStart:(NSNotification *)notification {
-    NSLog(@"Transition to start");
-    
+- (void)transitionStart:(NSNotification *)notification {    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"hideAd" object:nil];
     
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionLeft duration:1.0];
@@ -106,8 +105,6 @@
  *  @param notification unused
  */
 - (void)transitionMenu:(NSNotification *)notification {
-    NSLog(@"Transition to options");
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"hideAd" object:nil];
     
     SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
@@ -115,5 +112,19 @@
     [self.scene.view presentScene: startScene transition: reveal];
 }
 
+- (void)addShareButton {
+    SKButton *backButton = [[SKButton alloc] initWithImageNamedNormal:@"ButtonNormal" selected:@"ButtonSelected"];
+    [backButton setPosition:CGPointMake(self.frame.size.width/2, self.frame.size.height/4)];
+    [backButton.title setText:@"Share"];
+    [backButton.title setFontName:kCustomFont];
+    [backButton.title setFontSize:16];
+    [backButton setTouchUpInsideTarget:self action:@selector(showShareSheet:)];
+    [self addChild:backButton];
+}
+
+- (void)showShareSheet:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showShare" object:nil];
+
+}
 @end
 
