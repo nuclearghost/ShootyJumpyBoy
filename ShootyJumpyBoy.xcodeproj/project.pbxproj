@@ -55,6 +55,7 @@
 		F3213472193BEF2E008423ED /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3213470193BEF2E008423ED /* OptionsViewController.m */; };
 		F3213473193BEF2E008423ED /* OptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3213471193BEF2E008423ED /* OptionsViewController.xib */; };
 		F336B03E1953F5E600FE4B88 /* Hazard.m in Sources */ = {isa = PBXBuildFile; fileRef = F336B03D1953F5E600FE4B88 /* Hazard.m */; };
+		F349735C19569BF400F3C368 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = F349735B19569BF400F3C368 /* iRate.m */; };
 		F3710DEE193CBF8B002581F1 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3710DED193CB495002581F1 /* SoundPlayer.m */; };
 		F39CEE2B1947E76A006C7ED4 /* Menu Background.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE2A1947E76A006C7ED4 /* Menu Background.png */; };
 		F39CEE331947F729006C7ED4 /* Left.png in Resources */ = {isa = PBXBuildFile; fileRef = F39CEE311947F729006C7ED4 /* Left.png */; };
@@ -157,6 +158,8 @@
 		F3213471193BEF2E008423ED /* OptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsViewController.xib; sourceTree = "<group>"; };
 		F336B03C1953F5E600FE4B88 /* Hazard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hazard.h; sourceTree = "<group>"; };
 		F336B03D1953F5E600FE4B88 /* Hazard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hazard.m; sourceTree = "<group>"; };
+		F349735A19569BF400F3C368 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		F349735B19569BF400F3C368 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		F3710DEC193CB495002581F1 /* SoundPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		F3710DED193CB495002581F1 /* SoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		F39CEE2A1947E76A006C7ED4 /* Menu Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Background.png"; sourceTree = "<group>"; };
@@ -300,8 +303,7 @@
 				F30ED6E91933AB8F0027483C /* SKButton.m */,
 				F3710DEC193CB495002581F1 /* SoundPlayer.h */,
 				F3710DED193CB495002581F1 /* SoundPlayer.m */,
-				F3CB908D1952B00A006E62DB /* SoundManager.h */,
-				F3CB908E1952B00A006E62DB /* SoundManager.m */,
+				F349735919569BE400F3C368 /* Vendor */,
 				F30ED6A219328ED80027483C /* Images.xcassets */,
 				F30ED68C19328ED80027483C /* Supporting Files */,
 			);
@@ -428,6 +430,17 @@
 				F30ED6FA193416990027483C /* My Song.m4a */,
 			);
 			name = Music;
+			sourceTree = "<group>";
+		};
+		F349735919569BE400F3C368 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB908D1952B00A006E62DB /* SoundManager.h */,
+				F3CB908E1952B00A006E62DB /* SoundManager.m */,
+				F349735A19569BF400F3C368 /* iRate.h */,
+				F349735B19569BF400F3C368 /* iRate.m */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 		F39CEE291947E75D006C7ED4 /* Menu */ = {
@@ -630,6 +643,7 @@
 				F30ED69F19328ED80027483C /* MyScene.m in Sources */,
 				F3CB908F1952B00A006E62DB /* SoundManager.m in Sources */,
 				F3135F271938071F00443706 /* Platform.m in Sources */,
+				F349735C19569BF400F3C368 /* iRate.m in Sources */,
 				F30ED69C19328ED80027483C /* ViewController.m in Sources */,
 				F30ED69619328ED80027483C /* AppDelegate.m in Sources */,
 				F3B9ABB119362BD000C1B843 /* Enemy.m in Sources */,
