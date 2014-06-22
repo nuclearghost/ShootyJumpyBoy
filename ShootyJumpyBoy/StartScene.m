@@ -82,7 +82,7 @@
     [backButton setPosition:CGPointMake(self.frame.size.width/2, self.frame.size.height/4)];
     [backButton.title setText:@"Game Center"];
     [backButton.title setFontName:kCustomFont];
-    [backButton.title setFontSize:10.0];
+    [backButton.title setFontSize:8.0];
     [backButton setTouchUpInsideTarget:self action:@selector(transitionGameCenter:)];
     [self addChild:backButton];
 }
