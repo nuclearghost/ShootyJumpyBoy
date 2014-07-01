@@ -86,7 +86,7 @@ static bool isFirstAccess = YES;
         else {
             if ([GKLocalPlayer localPlayer].authenticated) {
                 self.gameCenterAvailable = YES;
-
+                
                 // Get the default leaderboard identifier.
                 [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
                     
@@ -107,14 +107,16 @@ static bool isFirstAccess = YES;
 }
 
 - (void) reportScore:(NSInteger)points {
-    GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:_leaderboardIdentifier];
-    score.value = points;
-    
-    [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-    }];
+    if (self.gameCenterAvailable) {
+        GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:_leaderboardIdentifier];
+        score.value = points;
+        
+        [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"%@", [error localizedDescription]);
+            }
+        }];
+    }
 }
 
 -(void)showLeaderboardInViewController:(UIViewController *)presentingVC {
@@ -122,7 +124,7 @@ static bool isFirstAccess = YES;
     
     gcViewController.gameCenterDelegate = self;
     
-
+    
     gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
     gcViewController.leaderboardIdentifier = self.leaderboardIdentifier;
     
